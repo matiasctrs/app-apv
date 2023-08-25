@@ -1,4 +1,4 @@
-pip freeze > requirements.txt
+pip install -r requirements.txt
 import streamlit as st
 import numpy as np
 import pandas as pd
