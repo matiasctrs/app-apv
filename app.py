@@ -1,4 +1,4 @@
-cd /home/adminuser/
+cd /home/adminuser
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
