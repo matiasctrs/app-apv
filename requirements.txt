@@ -1,5 +1,5 @@
 pvlib
 numpy
 pandas
-av_utils.py
+av_utils
 pv_factors
