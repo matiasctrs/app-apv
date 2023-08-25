@@ -1,7 +1,7 @@
 import streamlit as st
-/home/adminuser/venv/bin/python -m pip install --upgrade pip
-/home/adminuser/venv/bin/python -m pip install pvlib
- /home/adminuser/venv/bin/python -m pip install pandas
+#/home/adminuser/venv/bin/python -m pip install --upgrade pip
+#/home/adminuser/venv/bin/python -m pip install pvlib
+# /home/adminuser/venv/bin/python -m pip install pandas
 import numpy as np
 import pandas as pd
 import pvlib
