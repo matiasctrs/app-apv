@@ -1,4 +1,5 @@
 import streamlit as st
+/home/adminuser/venv/bin/python -m pip install --upgrade pip
 import numpy as np
 import pandas as pd
 import pvlib
