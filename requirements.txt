@@ -1,1 +1,6 @@
-pvlib == 3.3
+pvlib
+numpy
+pandas
+importlib
+datetime
+pytz
