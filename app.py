@@ -1,8 +1,3 @@
-cd /home/adminuser
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-deactivate
 import streamlit as st
 import numpy as np
 import pandas as pd
