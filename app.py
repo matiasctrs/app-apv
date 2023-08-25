@@ -1,4 +1,4 @@
-#py -m pip install pvlib
+pip freeze > requirements.txt
 import streamlit as st
 import numpy as np
 import pandas as pd
