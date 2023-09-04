@@ -2,4 +2,4 @@ pvlib
 numpy
 pandas
 #av_utils
-#pv_factors
+pv_factors
