@@ -82,7 +82,7 @@ if simular:
 
                 gen_mess = pv.sum()/1000
                 gen_mess = float("{:.2f}".format(gen_mess))
-                #st.success("PV generation is "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
+                #st.success("La generación fotovoltaica es: "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
                 formula_en_bloque = f"PV generation is: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                 st.success(formula_en_bloque) #
 
