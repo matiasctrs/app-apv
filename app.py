@@ -9,7 +9,7 @@ import av_utils as av
 #importlib.reload(av)
 
 st.set_page_config(page_title="APV data analysis")
-local_css("style.css")
+
 
 
 #------Header section ----------
@@ -97,7 +97,7 @@ if simular:
 
 
 #----CONTACT----
-
+local_css("style.css")
 with st.container():
     st.write("---")
     st.header("Contactate con nosotros")
