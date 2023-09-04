@@ -83,7 +83,7 @@ if simular:
                 gen_mess = pv.sum()/1000
                 #st.success("PV generation is "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
                 formula_en_bloque = f"PV generation is: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
-                st.write(formula_en_bloque) #success
+                st.success(formula_en_bloque) #
 
             else:
                 st.write("Ingrese datos validos")
