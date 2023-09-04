@@ -66,8 +66,7 @@ if simular:
     if latitude and longitude !=0:
         if tz != "Seleccione una opción":
             tmy, altitude = av.tmy_download(latitude, longitude, tz) 
-            st.header("TMY:")           
-            st.dataframe(tmy.head(24))
+            
             if pvrow_azimuth and pvrow_tilt !=0:
                 pv = av.pv_yield(tmy_data = tmy, 
                             albedo = albedo, 
@@ -85,6 +84,8 @@ if simular:
                 #st.success("La generación fotovoltaica es: "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
                 formula_en_bloque = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                 st.success(formula_en_bloque) #
+                st.header("TMY:")           
+                st.dataframe(tmy.head(24))
 
             else:
                 st.write("Ingrese datos validos")
