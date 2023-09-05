@@ -102,7 +102,7 @@ if simular:
 if "my_input" not in st.session_state:
     st.session_state["my_input"] = ""
 
-my_input = st.success(formula_en_bloque)
+my_input = formula_en_bloque
 
 if simular:
     st.session_state["my_input"] = my_input
