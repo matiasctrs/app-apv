@@ -119,7 +119,7 @@ if simular:
    
  
 if counter != 0:
-    if button_status == False:
+    if button_status = False:
     
         st.success(st.session_state["resultado"])
 
