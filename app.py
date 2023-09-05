@@ -90,18 +90,17 @@ if simular:
                             bifaciality = bifaciality)
 
                 gen_mess = pv.sum()/1000
-                gen_mess = float("{:.2f}".format(gen_mess))
-                #st.success("La generación fotovoltaica es: "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
-                formula_en_bloque = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
-                st.success(formula_en_bloque) #
+                gen_mess = float("{:.2f}".format(gen_mess))                
+                st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
+                st.success(st.session_state["resultado"])
                 
                 ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
-                if "resultado" not in st.session_state:
-                    st.session_state["resultado"] =""
+               # if "resultado" not in st.session_state:
+                #    st.session_state["resultado"] =""
 
-                if simular:
-                    #st.session_state["azimuth"] = pvrow_azimuth
-                    st.session_state["resultado"] = formula_en_bloque
+#                if simular:
+ #                   #st.session_state["azimuth"] = pvrow_azimuth
+  #                  st.session_state["resultado"] = formula_en_bloque
 
                 #-----------------------------------------------------------------    
                 st.header("TMY:")           
