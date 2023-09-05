@@ -117,7 +117,8 @@ if simular:
         st.write("Ingrese coordenadas válidas")
    
  
- if counter != 0 and not simular:
+ if counter != 0 and simular == False:
+    
     st.success(st.session_state["resultado"])
 
 
