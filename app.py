@@ -24,16 +24,7 @@ longitude= st.number_input("Ingresa la longitud", value = -44.015762, format = "
 tz_options = ["Seleccione una opción","Brazil/East"]
 tz = st.selectbox("Ingresa la zona horaria",tz_options)
 
-# Guardar el valor en un archivo (por ejemplo, user_input.txt)
-#"""with open("user_input.txt", "w") as f:
- #   f.write(user_input)"""
-
-#-----Calculo ---- 
-
-# Dowload of TMY from PVGIS, altitude 
-
-#generar_tmy = st.button("Generar TMY", key = "tmy")
-#st.write(generar_tmy)
+generar_tmy = st.button("Generar TMY", key = "TMY")   
 
 #------ Simulacion de generacion electrica-----
 
@@ -70,8 +61,7 @@ session_state = get_session_state()
 
 # PV simulation (pvlib viewfactors)
 
-simular = st.button("Simular", key = "simular")
-generar_tmy = st.button("Generar TMY", key = "TMY")             
+simular = st.button("Simular", key = "simular")          
 
 if generar_tmy:
     if latitude and longitude !=0:
