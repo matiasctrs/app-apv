@@ -193,6 +193,22 @@ def pv_yield(tmy_data, albedo, track, pvrow_azimuth, pvrow_tilt, n_pvrows, pvrow
 
     return results_ac_real
 
+#con pvgen = generacion especifica en un año en kWh/kWp/a
 
+def lcoe_calc(pv_gen, kWp = 50, capex = 900, opex = 25, wacc = 0.055,degre = 0.005, inflation = 0.03, N = 25):
+
+    # LCOE calculation (can be externalized as functions in av_utils)
+
+    cashflow= pd.DataFrame(index=range(0,N))
+
+    cashflow["OPEX_des"] = (opex * kWp * (1+inflation)**cashflow.index) / (1+wacc)**cashflow.index
+
+    cashflow["EG_des"] = (pv_gen * kWp * (1-degre)**cashflow.index) / (1+wacc)**cashflow.index
+
+    LCOE =  ((capex * kWp + cashflow["OPEX_des"].sum() ) / cashflow["EG_des"].sum())*1000
+
+    print("LCOE of the simulated system is "+str(round(LCOE,2))+" USD/kWh")
+
+    return LCOE
 
 
