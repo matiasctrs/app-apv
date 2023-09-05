@@ -25,7 +25,9 @@ tz_options = ["Seleccione una opción","Brazil/East"]
 tz = st.selectbox("Ingresa la zona horaria",tz_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   
-
+if "tmy_24" in st.session_state:
+    st.header("TMY:")
+    st.dataframe(st.session_state["tmy_24"])
 #------ Simulacion de generacion electrica-----
 
 st.subheader("Simulación eléctrica:")
@@ -108,13 +110,7 @@ if simular:
             st.write("Ingrese una zona horaria válida")
     else:
         st.write("Ingrese coordenadas válidas")
-   
  
-if "tmy_24" in st.session_state:
-    st.header("TMY:")
-    st.dataframe(st.session_state["tmy_24"])
-
-
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
 
