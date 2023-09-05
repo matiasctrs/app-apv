@@ -14,7 +14,7 @@ st.set_page_config(page_title="APV data analysis")
 
 #------Header section ----------
 
-st.subheader("Rellene este formulario para simular la generación APV aaaaa")
+st.subheader("Rellene este formulario para simular la generación APV")
 
 #_____BODY_________
 
