@@ -90,21 +90,13 @@ if simular:
                             bifaciality = bifaciality)
 
                 gen_mess = pv.sum()/1000
-                gen_mess = float("{:.2f}".format(gen_mess))                
+                gen_mess = float("{:.2f}".format(gen_mess))    
+                 ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
                 st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
-                #st.success(st.session_state["resultado"])
+               
+                st.header("TMY:")
+                st.session_state["tmy"]  = tmy.head(24)       
                 
-                ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
-               # if "resultado" not in st.session_state:
-                #    st.session_state["resultado"] =""
-
-#                if simular:
- #                   #st.session_state["azimuth"] = pvrow_azimuth
-  #                  st.session_state["resultado"] = formula_en_bloque
-
-                #-----------------------------------------------------------------    
-                st.header("TMY:")           
-                st.dataframe(tmy.head(24))
 
             else:
                 st.write("Ingrese datos validos")
@@ -118,7 +110,16 @@ if simular:
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
 
+if "tmy" in st.session_state:
+    st.dataframe(st.session_state["tmy"])
 
+
+
+
+
+
+
+    
 #----CONTACT----
 
 with st.container():
