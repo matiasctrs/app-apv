@@ -94,7 +94,7 @@ if simular:
                  ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
                 st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                
-                st.header("TMY:")
+                
                 st.session_state["tmy"]  = tmy.head(24)       
                 
 
@@ -107,11 +107,15 @@ if simular:
         st.write("Ingrese coordenadas válidas")
    
  
+if "tmy" in st.session_state:
+    st.header("TMY:")
+    st.dataframe(st.session_state["tmy"])
+
+
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
 
-if "tmy" in st.session_state:
-    st.dataframe(st.session_state["tmy"])
+
 
 
 
