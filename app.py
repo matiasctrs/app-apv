@@ -14,7 +14,7 @@ st.set_page_config(page_title="APV data analysis")
 
 #------Header section ----------
 
-st.subheader("Rellene este formulario para simular la generación APV")
+st.subheader("Rellene este formulario para simular la generación APV aaaaa")
 
 #_____BODY_________
 
@@ -126,5 +126,3 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}<style>",unsafe_allow_html=True)
 
 local_css("style.css")
-
-### prueba numero 1
