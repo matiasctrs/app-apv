@@ -73,7 +73,7 @@ session_state = get_session_state()
 simular = st.button("Simular", key = "simular")            
 
 counter = 0
-
+button_status = False
 if simular:
     if latitude and longitude !=0:
         if tz != "Seleccione una opción":
@@ -96,6 +96,7 @@ if simular:
                 st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                 st.success(st.session_state["resultado"])
                 counter +=1
+                button_status=True
                 ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
                # if "resultado" not in st.session_state:
                 #    st.session_state["resultado"] =""
@@ -118,7 +119,7 @@ if simular:
    
  
 if counter != 0:
-    if simular :
+    if button_status = False :
     
     st.success(st.session_state["resultado"])
 
