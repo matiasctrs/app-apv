@@ -67,7 +67,8 @@ if generar_tmy:
     if latitude and longitude !=0:
         if tz != "Seleccione una opción":
             tmy, altitude = av.tmy_download(latitude, longitude, tz)
-            st.session_state["tmy"]  = tmy.head(24)  
+            st.session_state["tmy"]  = tmy  
+            st.session_state["tmy_24"]  = tmy.head(24)  
         else:
             st.write("Ingrese una zona horaria válida")
 
@@ -82,7 +83,7 @@ if simular:
 
             
                 if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
-                    pv = av.pv_yield(tmy_data = tmy, 
+                    pv = av.pv_yield(tmy_data = st.session_state["tmy"], 
                                 albedo = albedo, 
                                 track = track, 
                                 pvrow_azimuth = st.session_state["azimuth"], 
@@ -109,9 +110,9 @@ if simular:
         st.write("Ingrese coordenadas válidas")
    
  
-if "tmy" in st.session_state:
+if "tmy_24" in st.session_state:
     st.header("TMY:")
-    st.dataframe(st.session_state["tmy"])
+    st.dataframe(st.session_state["tmy_24"])
 
 
 if "resultado" in st.session_state:
