@@ -10,7 +10,8 @@ import av_utils as av
 
 st.set_page_config(page_title="APV data analysis")
 
-
+st.title("Fotovoltaico")
+st.sidebar.success("Seleccione una pagina")
 
 #------Header section ----------
 
