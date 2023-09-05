@@ -70,39 +70,51 @@ session_state = get_session_state()
 
 # PV simulation (pvlib viewfactors)
 
-simular = st.button("Simular", key = "simular")            
+simular = st.button("Simular", key = "simular")
+generar_tmy = st.button("Generar TMY", key = "TMY")             
+
+if generar_tmy:
+    if latitude and longitude !=0:
+        if tz != "Seleccione una opción":
+            tmy, altitude = av.tmy_download(latitude, longitude, tz)
+            st.session_state["tmy"]  = tmy.head(24)  
+        else:
+            st.write("Ingrese una zona horaria válida")
+
+    else:
+        st.write("Ingrese coordenadas válidas")
 
 if simular:
     if latitude and longitude !=0:
         if tz != "Seleccione una opción":
-            tmy, altitude = av.tmy_download(latitude, longitude, tz) 
+
+            if "tmy" in st.session_state:
+
             
-            if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
-                pv = av.pv_yield(tmy_data = tmy, 
-                            albedo = albedo, 
-                            track = track, 
-                            pvrow_azimuth = st.session_state["azimuth"], 
-                            pvrow_tilt = st.session_state["pvrow_tilt"] , 
-                            n_pvrows = n_pvrows, 
-                            pvrow_width = pvrow_width, 
-                            pvrow_pitch = pvrow_pitch, 
-                            pvrow_height = pvrow_height, 
-                            bifaciality = bifaciality)
+                if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
+                    pv = av.pv_yield(tmy_data = tmy, 
+                                albedo = albedo, 
+                                track = track, 
+                                pvrow_azimuth = st.session_state["azimuth"], 
+                                pvrow_tilt = st.session_state["pvrow_tilt"] , 
+                                n_pvrows = n_pvrows, 
+                                pvrow_width = pvrow_width, 
+                                pvrow_pitch = pvrow_pitch, 
+                                pvrow_height = pvrow_height, 
+                                bifaciality = bifaciality)
 
-                gen_mess = pv.sum()/1000
-                gen_mess = float("{:.2f}".format(gen_mess))    
-                 ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
-                st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
-               
-                
-                st.session_state["tmy"]  = tmy.head(24)       
-                
-
+                    gen_mess = pv.sum()/1000
+                    gen_mess = float("{:.2f}".format(gen_mess))    
+                    ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
+                    st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
+                                
+                    
+                else:
+                    st.write("Ingrese datos validos")
             else:
-                st.write("Ingrese datos validos")
+                st.write("Pimero genere un TMY")
         else:
             st.write("Ingrese una zona horaria válida")
-
     else:
         st.write("Ingrese coordenadas válidas")
    
