@@ -53,15 +53,22 @@ with st.expander("Otros parámetros"):
     bifaciality = st.number_input("Ingresa el factor de bifacialidad", value=0.9)
 
 "---"
-# PV simulation (pvlib viewfactors)
 
-simular = st.button("Simular", key = "simular")
 
-#
-#if generar_tmy:
+######---------función para estado de sesion y guardar variables
+
+def get_session_state():
+    return st.session_state
+
+session_state = get_session_state()
+
     
             
-            
+##__________________simulacion________________--
+
+# PV simulation (pvlib viewfactors)
+
+simular = st.button("Simular", key = "simular")            
        
 if simular:
     if latitude and longitude !=0:
@@ -85,14 +92,15 @@ if simular:
                 #st.success("La generación fotovoltaica es: "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
                 formula_en_bloque = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                 st.success(formula_en_bloque) #
+                
                 ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
-                if "my_input" not in st.session_state:
-                    st.session_state["my_input"] = ""
-
-                my_input = formula_en_bloque
+                if "resultado" not in st.session_state:
+                    st.session_state["resultado"] =""
 
                 if simular:
-                    st.session_state["my_input"] = my_input
+                    st.session_state["resultado"] = formula_en_bloque
+
+                #-----------------------------------------------------------------    
                 st.header("TMY:")           
                 st.dataframe(tmy.head(24))
 
