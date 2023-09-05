@@ -98,6 +98,7 @@ if simular:
                     st.session_state["resultado"] =""
 
                 if simular:
+                    st.session_state["azimuth"] = pvrow_azimuth
                     st.session_state["resultado"] = formula_en_bloque
 
                 #-----------------------------------------------------------------    
