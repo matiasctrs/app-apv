@@ -39,9 +39,10 @@ tz = st.selectbox("Ingresa la zona horaria",tz_options)
 st.subheader("Simulación eléctrica:")
 track_options = [True,False]
 track = st.selectbox("Tracking",track_options)
-st.checkbox("mostrar info")
-pvrow_azimuth = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
-pvrow_tilt = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
+with st.container():
+    st.checkbox("mostrar info")
+    pvrow_azimuth = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
+    pvrow_tilt = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
 
 # fijos
 with st.expander("Otros parámetros"):
