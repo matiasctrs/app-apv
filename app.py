@@ -71,7 +71,9 @@ session_state = get_session_state()
 # PV simulation (pvlib viewfactors)
 
 simular = st.button("Simular", key = "simular")            
-       
+
+counter = 0
+
 if simular:
     if latitude and longitude !=0:
         if tz != "Seleccione una opción":
@@ -93,7 +95,7 @@ if simular:
                 gen_mess = float("{:.2f}".format(gen_mess))                
                 st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                 st.success(st.session_state["resultado"])
-                
+                counter +=1
                 ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
                # if "resultado" not in st.session_state:
                 #    st.session_state["resultado"] =""
@@ -115,6 +117,9 @@ if simular:
         st.write("Ingrese coordenadas válidas")
    
  
+ if counter != 0 and not simular:
+    st.success(st.session_state["resultado"])
+
 
 #----CONTACT----
 
