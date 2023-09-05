@@ -40,7 +40,8 @@ tz = st.selectbox("Ingresa la zona horaria",tz_options)
 st.subheader("Simulación eléctrica:")
 track_options = [True,False]
 track = st.selectbox("Tracking",track_options)
-pvrow_azimuth = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
+#pvrow_azimuth = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
+st.session_state["azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
 pvrow_tilt = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
 
 # fijos
@@ -75,11 +76,11 @@ if simular:
         if tz != "Seleccione una opción":
             tmy, altitude = av.tmy_download(latitude, longitude, tz) 
             
-            if pvrow_azimuth and pvrow_tilt !=0:
+            if st.session_state["azimuth"] and pvrow_tilt !=0:
                 pv = av.pv_yield(tmy_data = tmy, 
                             albedo = albedo, 
                             track = track, 
-                            pvrow_azimuth = pvrow_azimuth, 
+                            pvrow_azimuth = st.session_state["azimuth"], 
                             pvrow_tilt = pvrow_tilt, 
                             n_pvrows = n_pvrows, 
                             pvrow_width = pvrow_width, 
@@ -98,7 +99,7 @@ if simular:
                     st.session_state["resultado"] =""
 
                 if simular:
-                    st.session_state["azimuth"] = pvrow_azimuth
+                    #st.session_state["azimuth"] = pvrow_azimuth
                     st.session_state["resultado"] = formula_en_bloque
 
                 #-----------------------------------------------------------------    
