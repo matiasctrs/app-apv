@@ -85,6 +85,14 @@ if simular:
                 #st.success("La generación fotovoltaica es: "+st.latex(str(pv.sum()/1000)+r"\left(\frac{kWh}{kWp*year}\right)"))
                 formula_en_bloque = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                 st.success(formula_en_bloque) #
+                ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
+                if "my_input" not in st.session_state:
+                    st.session_state["my_input"] = ""
+
+                my_input = formula_en_bloque
+
+                if simular:
+                    st.session_state["my_input"] = my_input
                 st.header("TMY:")           
                 st.dataframe(tmy.head(24))
 
@@ -96,16 +104,7 @@ if simular:
     else:
         st.write("Ingrese coordenadas válidas")
    
- ##-------GUARDA INPUT EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------
-
-
-if "my_input" not in st.session_state:
-    st.session_state["my_input"] = ""
-
-my_input = formula_en_bloque
-
-if simular:
-    st.session_state["my_input"] = my_input
+ 
 
 #----CONTACT----
 
