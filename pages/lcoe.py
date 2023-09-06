@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 st.title("Cálculos económicos")
-
+variables_excluidas = ["tmy","tmy_24","resultado"]
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
     #st.write(pd.DataFrame(st.session_state))
@@ -13,7 +13,7 @@ if "resultado" in st.session_state:
         
         for variable_name, variable_value in session_state.items():
             #if isinstance(variable_value, str) and len(variable_value) < 4:
-            if variable_name != "tmy", "tmy_24":
+            if variable_name not in variables_excluidas:
                 data['Nombre de Variable'].append(variable_name)
                 data['Valor'].append(variable_value)  
                 
