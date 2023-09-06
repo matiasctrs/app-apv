@@ -19,17 +19,17 @@ st.subheader("Rellene este formulario para simular la generación APV")
 
 #_____BODY_________
 
-latitude= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
-longitude= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
+st.session_state["latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
+st.session_state["longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 tz_options = ["Seleccione una opción","Brazil/East"]
 tz = st.selectbox("Ingresa la zona horaria",tz_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   
   
 if generar_tmy:
-    if latitude and longitude !=0:
+    if st.session_state["latitude"] and st.session_state["longitude"] !=0:
         if tz != "Seleccione una opción":
-            tmy, altitude = av.tmy_download(latitude, longitude, tz)
+            tmy, altitude = av.tmy_download(st.session_state["latitude"], st.session_state["longitude"], tz)
             st.session_state["tmy"]  = tmy  
             st.session_state["tmy_24"]  = tmy.head(24)  
         else:
@@ -46,10 +46,8 @@ if "tmy_24" in st.session_state:
 
 st.subheader("Simulación eléctrica:")
 track_options = [True,False]
-track = st.selectbox("Tracking",track_options)
-#pvrow_azimuth = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
+st.session_state["track"] = st.selectbox("Tracking",track_options)
 st.session_state["azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
-#pvrow_tilt = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
 st.session_state["pvrow_tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
 
 # fijos
@@ -84,7 +82,7 @@ if simular:
         if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
             pv = av.pv_yield(tmy_data = st.session_state["tmy"], 
                                 albedo = albedo, 
-                                track = track, 
+                                track = st.session_state["track"] , 
                                 pvrow_azimuth = st.session_state["azimuth"], 
                                 pvrow_tilt = st.session_state["pvrow_tilt"] , 
                                 n_pvrows = n_pvrows, 
