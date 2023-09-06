@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 st.title("Cálculos económicos")
-variables_excluidas = ["tmy","tmy_24","resultado"]
+variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular"]
 
 
 

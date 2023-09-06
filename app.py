@@ -24,7 +24,7 @@ st.session_state["longitude"]= st.number_input("Ingresa la longitud", value = -4
 tz_options = ["Seleccione una opción","Brazil/East"]
 st.session_state["tz"] = st.selectbox("Ingresa la zona horaria",tz_options)
 
-generar_tmy = st.button("Generar TMY")   #, key = "TMY"
+generar_tmy = st.button("Generar TMY", key = "TMY")   #
   
 if generar_tmy:
     if st.session_state["latitude"] and st.session_state["longitude"] !=0:
