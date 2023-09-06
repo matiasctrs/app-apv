@@ -6,7 +6,7 @@ st.title("Cálculos económicos")
 variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular"]
 
 
-
+st.header("Resúmen de generación fotovoltaica")
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
     #st.write(pd.DataFrame(st.session_state))
