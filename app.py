@@ -25,7 +25,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
 
 # Agregar un control de clic en el mapa
-folium.Marker([51.5074, -0.1278], tooltip="Haz clic aquí").add_to(m)
+folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
 
 # Mostrar el mapa en Streamlit
 folium_static(m)
@@ -36,7 +36,9 @@ if st.button("Obtener Coordenadas"):
     result = st.map()
 
     if result:
-        st.write(f"Coordenadas seleccionadas: Latitud={result['lat']}, Longitud={result['lon']}")
+        latitud = result.location.latitude
+        longitud = result.location.longitude
+        st.write(f"Coordenadas seleccionadas: Latitud={latitud}, Longitud={longitud}")
 
 # definición de variables
 
