@@ -38,7 +38,7 @@ m.add_child(popup1)
 folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
 
 # Mostrar el mapa en Streamlit
-st_folium(m, height=500, width = 1000)
+st_folium(m, height=500, width = 500)
 
 # definición de variables
 
