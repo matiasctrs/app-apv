@@ -12,7 +12,7 @@ if "resultado" in st.session_state:
         
         for variable_name, variable_value in session_state.items():
             data['Nombre de Variable'].append(variable_name)
-            data['Valor'].append(len(variable_value))  
+            data['Valor'].append(variable_value.count)  
                 
   
         df = pd.DataFrame(data)
