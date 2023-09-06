@@ -109,10 +109,6 @@ if "resultado" in st.session_state:
 
 
 
-resumen = pd.DataFrame(st.session_state)
-
-
-
 
 
 
