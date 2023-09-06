@@ -22,7 +22,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 #_____BODY_________
 
 # Crear un mapa centrado en una ubicación específica
-m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
+m = folium.Map(location=[-44.015762,-15.087836], zoom_start=10)
 
 # Crear un elemento de mapa interactivo en Streamlit
 sf.folium_static(m)
