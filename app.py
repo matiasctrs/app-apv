@@ -30,7 +30,7 @@ m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
 folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
 
 # Mostrar el mapa en Streamlit
-st.folium(m)
+st_folium(m)
 
 
 # definición de variables
