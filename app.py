@@ -19,17 +19,17 @@ st.subheader("Rellene este formulario para simular la generación APV")
 
 #_____BODY_________
 
-st.session_state["latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
-st.session_state["longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
+st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
+st.session_state["Longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 tz_options = ["Seleccione una opción","Brazil/East"]
-st.session_state["tz"] = st.selectbox("Ingresa la zona horaria",tz_options)
+st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",Time zone_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   #
   
 if generar_tmy:
-    if st.session_state["latitude"] and st.session_state["longitude"] !=0:
-        if st.session_state["tz"] != "Seleccione una opción":
-            tmy, altitude = av.tmy_download(st.session_state["latitude"], st.session_state["longitude"], st.session_state["tz"])
+    if st.session_state["Latitude"] and st.session_state["Longitude"] !=0:
+        if st.session_state["Time zone"] != "Seleccione una opción":
+            tmy, altitude = av.tmy_download(st.session_state["Latitude"], st.session_state["Longitude"], st.session_state["Time zone"])
             st.session_state["tmy"]  = tmy  
             st.session_state["tmy_24"]  = tmy.head(24)  
         else:
@@ -45,10 +45,10 @@ if "tmy_24" in st.session_state:
 #------ Simulacion de generacion electrica-----
 
 st.subheader("Simulación eléctrica:")
-track_options = [True,False]
-st.session_state["track"] = st.selectbox("Tracking",track_options)
-st.session_state["azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
-st.session_state["pvrow_tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
+Track_options = [True,False]
+st.session_state["Track"] = st.selectbox("Tracking",Track_options)
+st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
+st.session_state["Pv row tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
 
 # fijos
 with st.expander("Otros parámetros"):
@@ -79,12 +79,12 @@ simular = st.button("Simular", key = "simular")
 
 if simular:
     if "tmy" in st.session_state:
-        if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
+        if st.session_state["Azimuth"] and st.session_state["Pv row tilt"] !=0:
             pv = av.pv_yield(tmy_data = st.session_state["tmy"], 
                                 albedo = albedo, 
-                                track = st.session_state["track"] , 
-                                pvrow_azimuth = st.session_state["azimuth"], 
-                                pvrow_tilt = st.session_state["pvrow_tilt"] , 
+                                track = st.session_state["Track"] , 
+                                pvrow_azimuth = st.session_state["Azimuth"], 
+                                pvrow_tilt = st.session_state["Pv row tilt"] , 
                                 n_pvrows = n_pvrows, 
                                 pvrow_width = pvrow_width, 
                                 pvrow_pitch = pvrow_pitch, 
@@ -105,15 +105,3 @@ if simular:
  
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
-
-
-
-
-
-
-
-
-
-
-
-
