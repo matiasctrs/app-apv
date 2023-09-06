@@ -29,7 +29,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
 st.session_state["Longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 # Crear un mapa centrado en una ubicación específica
-m = folium.Map(location=[st.session_state["Latitude"], st.session_state["Longitude"]], zoom_start=9)
+m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
 
 MousePosition().add_to(m)
 popup1 = folium.LatLngPopup()
