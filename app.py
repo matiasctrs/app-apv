@@ -32,15 +32,20 @@ marker.add_to(m)
 st.write(m)
     
 # Obtener las coordenadas del marcador
-st.sidebar.header("Coordenadas del Punto")
-latitude = st.sidebar.number_input("Latitud", value=0.0, format="%.6f")
-longitude = st.sidebar.number_input("Longitud", value=0.0, format="%.6f")
+st.header("Coordenadas del Punto")
+latitude = st.number_input("Latitud", value=0.0, format="%.6f")
+longitude = st.number_input("Longitud", value=0.0, format="%.6f")
     
 # Actualizar la ubicación del marcador en el mapa
 marker.location = [latitude, longitude]
     
 # Mostrar las coordenadas en tiempo real
-st.sidebar.write(f"Latitud: {latitude}, Longitud: {longitude}")
+st.write(f"Latitud: {latitude}, Longitud: {longitude}")
+
+
+
+
+
 # definición de variables
 
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
