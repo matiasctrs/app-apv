@@ -27,7 +27,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
 MousePosition().add_to(m)
 popup1 = folium.LatLngPopup()
-
+m.add_child(popup1)
 # Agregar un control de clic en el mapa
 folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
 
