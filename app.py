@@ -38,7 +38,7 @@ folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_t
 
 
 # Mostrar el mapa en Streamlit
-st_folium(m, width = 700)
+st_folium(m, width = 1000)
 
   
 
