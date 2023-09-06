@@ -25,9 +25,22 @@ st.subheader("Rellene este formulario para simular la generación APV")
 
 # Crear un mapa centrado en una ubicación específica
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
-MousePosition().add_to(m)
-popup1 = folium.LatLngPopup()
-m.add_child(popup1)
+formatter = "function(num) {return L.Util.formatNum(num, 3) + ' º ';};"
+
+MousePosition(
+    position="topright",
+    separator=" | ",
+    empty_string="NaN",
+    lng_first=True,
+    num_digits=20,
+    prefix="Coordinates:",
+    lat_formatter=formatter,
+    lng_formatter=formatter,
+).add_to(m)
+
+#MousePosition().add_to(m)
+#popup1 = folium.LatLngPopup()
+#m.add_child(popup1)
 # Agregar un control de clic en el mapa
 folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
 
@@ -35,7 +48,7 @@ folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_t
 st_folium(m)
 
 
-st.write("las coordenadas seleccionadas son: ", popup1.getlat())
+st.write("las coordenadas seleccionadas son: ", popup1.)
 # definición de variables
 
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
