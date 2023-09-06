@@ -6,6 +6,7 @@ import importlib
 #import datetime
 #import pytz
 import av_utils as av
+import folium
 importlib.reload(av)
 
 st.set_page_config(page_title="APV data analysis")
