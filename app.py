@@ -16,6 +16,7 @@ st.set_page_config(page_title="APV data analysis")
 
 st.title("Fotovoltaico")
 
+st.sidebar.success("Seleccione una pagina")
 
 #------Header section ----------
 
@@ -131,5 +132,3 @@ if simular:
  
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
-
-st.sidebar.success("Seleccione una pagina")
