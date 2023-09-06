@@ -24,16 +24,19 @@ st.subheader("Rellene este formulario para simular la generación APV")
 # Crear un mapa centrado en una ubicación específica
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
 
-# Crear un elemento de mapa interactivo en Streamlit
-sf.folium_static(m)
+# Agregar un control de clic en el mapa
+folium.Marker([51.5074, -0.1278], tooltip="Haz clic aquí").add_to(m)
 
+# Mostrar el mapa en Streamlit
+folium_static(m)
 
-# Manejar el evento de clic en el mapa
-clicked_location = st.empty()
-if m.get_root().button_pressed == 1:
-    coords = (m.get_root().mouse_lat, m.get_root().mouse_lng)
-    clicked_location.write(f"Coordenadas del punto seleccionado: {coords}")
+# Capturar las coordenadas del clic en el mapa
+if st.button("Obtener Coordenadas"):
+    st.write("Haz clic en el mapa para seleccionar un punto.")
+    result = st.map()
 
+    if result:
+        st.write(f"Coordenadas seleccionadas: Latitud={result["lat"]}, Longitud={result["lon"]}")
 
 # definición de variables
 
