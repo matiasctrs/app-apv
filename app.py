@@ -24,6 +24,10 @@ st.subheader("Rellene este formulario para simular la generación APV")
 
 #_____BODY_________
 
+
+
+st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
+st.session_state["Longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 # Crear un mapa centrado en una ubicación específica
 m = folium.Map(location=[st.session_state["Latitude"], st.session_state["Longitude"]], zoom_start=9)
 
@@ -33,21 +37,12 @@ m.add_child(popup1)
 # Agregar un control de clic en el mapa
 folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
 
-
-
-
-
-
 # Mostrar el mapa en Streamlit
 st_folium(m, width = 1000)
 
-  
-
-#st.write("las coordenadas seleccionadas son: ", popup1.)
 # definición de variables
 
-st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
-st.session_state["Longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
+
 tz_options = ["Seleccione una opción","Brazil/East"]
 st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",tz_options)
 
