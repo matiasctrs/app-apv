@@ -22,7 +22,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
 st.session_state["Longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 tz_options = ["Seleccione una opción","Brazil/East"]
-st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",Time zone_options)
+st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",tz_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   #
   
