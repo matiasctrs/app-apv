@@ -6,6 +6,22 @@ st.title("Cálculos económicos")
 
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
-    st.write(pd.DataFrame(st.session_state))
+    #st.write(pd.DataFrame(st.session_state))
+    def session_state_to_dataframe(session_state):
+        data = {'Nombre de Variable': [], 'Valor': []}
+        
+        for variable_name, variable_value in session_state.items():
+            data['Nombre de Variable'].append(variable_name)
+            data['Valor'].append(variable_value)
+        
+        df = pd.DataFrame(data)
+        
+        return df
+
+    # Crear un DataFrame a partir de st.session_state
+    df_session_state = session_state_to_dataframe(st.session_state)
+
+    # Mostrar el DataFrame
+    st.write(df_session_state)
 else:
     st.write("Primero simule un sistema fotovoltaico")
