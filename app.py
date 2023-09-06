@@ -36,10 +36,9 @@ if st.button("Obtener Coordenadas"):
     result = st.map()
 
     if result:
-        latitud = result.location.latitude
-        longitud = result.location.longitude
+        latitud = result["lat"]
+        longitud = result["lon"]
         st.write(f"Coordenadas seleccionadas: Latitud={latitud}, Longitud={longitud}")
-
 # definición de variables
 
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
