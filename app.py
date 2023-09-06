@@ -1,17 +1,17 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-#import pvlib
 import importlib
-#import datetime
-#import pytz
 import av_utils as av
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
-
+from folium.plugins import MousePosition
 import folium
 importlib.reload(av)
 
+
+
+#####---------main tittle-----------------
 st.set_page_config(page_title="APV data analysis")
 
 st.title("Fotovoltaico")
@@ -27,7 +27,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
 
 # Agregar un control de clic en el mapa
-folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
+folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
 
 # Mostrar el mapa en Streamlit
 st_folium(m)
