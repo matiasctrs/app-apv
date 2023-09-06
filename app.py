@@ -25,6 +25,7 @@ st.subheader("Rellene este formulario para simular la generación APV")
 
 # Crear un mapa centrado en una ubicación específica
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
+
 MousePosition().add_to(m)
 popup1 = folium.LatLngPopup()
 m.add_child(popup1)
@@ -33,6 +34,7 @@ folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_t
 
 # Mostrar el mapa en Streamlit
 st_folium(m)
+st.write(folium.LatLng)
 
 
 #st.write("las coordenadas seleccionadas son: ", popup1.)
