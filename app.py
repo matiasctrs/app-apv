@@ -19,6 +19,22 @@ st.subheader("Rellene este formulario para simular la generación APV")
 
 #_____BODY_________
 
+# Crear un mapa centrado en una ubicación específica
+m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
+
+# Crear un elemento de mapa interactivo en Streamlit
+sf.folium_static(m)
+
+
+# Manejar el evento de clic en el mapa
+clicked_location = st.empty()
+if m.get_root().button_pressed == 1:
+    coords = (m.get_root().mouse_lat, m.get_root().mouse_lng)
+    clicked_location.write(f"Coordenadas del punto seleccionado: {coords}")
+
+
+# definición de variables
+
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
 st.session_state["Longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 tz_options = ["Seleccione una opción","Brazil/East"]
