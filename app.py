@@ -111,7 +111,7 @@ if "resultado" in st.session_state:
 
 for variable in st.session_state:
     #if len(variable) < 3:
-    resumen = pd.DataFrame(variable, columns =["Variable", "Valor"])
+    resumen = pd.DataFrame(variable)
 
 
 
