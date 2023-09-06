@@ -25,6 +25,20 @@ tz_options = ["Seleccione una opción","Brazil/East"]
 tz = st.selectbox("Ingresa la zona horaria",tz_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   
+  
+if generar_tmy:
+    if latitude and longitude !=0:
+        if tz != "Seleccione una opción":
+            tmy, altitude = av.tmy_download(latitude, longitude, tz)
+            st.session_state["tmy"]  = tmy  
+            st.session_state["tmy_24"]  = tmy.head(24)  
+        else:
+            st.write("Ingrese una zona horaria válida")
+
+    else:
+        st.write("Ingrese coordenadas válidas")
+
+
 if "tmy_24" in st.session_state:
     st.header("TMY:")
     st.dataframe(st.session_state["tmy_24"])
@@ -65,19 +79,8 @@ session_state = get_session_state()
 
 # PV simulation (pvlib viewfactors)
 
-simular = st.button("Simular", key = "simular")          
 
-if generar_tmy:
-    if latitude and longitude !=0:
-        if tz != "Seleccione una opción":
-            tmy, altitude = av.tmy_download(latitude, longitude, tz)
-            st.session_state["tmy"]  = tmy  
-            st.session_state["tmy_24"]  = tmy.head(24)  
-        else:
-            st.write("Ingrese una zona horaria válida")
-
-    else:
-        st.write("Ingrese coordenadas válidas")
+simular = st.button("Simular", key = "simular")      
 
 if simular:
     if "tmy" in st.session_state:
