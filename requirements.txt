@@ -1,5 +1,7 @@
 pvlib
 numpy
 pandas
+streamlit-folium
+streamlit-extras
 #av_utils
 pvfactors
