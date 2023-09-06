@@ -28,7 +28,7 @@ m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
 folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
 
 # Mostrar el mapa en Streamlit
-folium_static(m)
+st.map()
 
 # Capturar las coordenadas del clic en el mapa
 if st.button("Obtener Coordenadas"):
