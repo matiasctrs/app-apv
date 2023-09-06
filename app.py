@@ -7,6 +7,8 @@ import importlib
 #import pytz
 import av_utils as av
 from streamlit_folium import folium_static
+from streamlit_folium import st_folium
+
 import folium
 importlib.reload(av)
 
@@ -22,23 +24,15 @@ st.subheader("Rellene este formulario para simular la generación APV")
 #_____BODY_________
 
 # Crear un mapa centrado en una ubicación específica
-m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
+m = folium.Map(location=[-15.087836, -44.015762], zoom_start=9)
 
 # Agregar un control de clic en el mapa
 folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
 
 # Mostrar el mapa en Streamlit
-st.map()
+st.folium(m)
 
-# Capturar las coordenadas del clic en el mapa
-if st.button("Obtener Coordenadas"):
-    st.write("Haz clic en el mapa para seleccionar un punto.")
-    result = st.map()
 
-    if result:
-        latitud = result["lat"]
-        longitud = result["lon"]
-        st.write(f"Coordenadas seleccionadas: Latitud={latitud}, Longitud={longitud}")
 # definición de variables
 
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
