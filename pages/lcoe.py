@@ -11,10 +11,10 @@ if "resultado" in st.session_state:
         data = {'Nombre de Variable': [], 'Valor': []}
         
         for variable_name, variable_value in session_state.items():
-            if len(variable_value) <3 :
-                data['Nombre de Variable'].append(variable_name)
-                data['Valor'].append(variable_value)
-        
+            if variable_name == "tmy" or "tmy_24" or "resultado":
+                continue
+            data['Nombre de Variable'].append(variable_name)
+            data['Valor'].append(variable_value)    
         df = pd.DataFrame(data)
         
         return df
