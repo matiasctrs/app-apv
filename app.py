@@ -25,27 +25,20 @@ st.subheader("Rellene este formulario para simular la generación APV")
 m = folium.Map(location=[-15.087836, -44.015762], zoom_start=10)
 
 # Agregar un control de clic en el mapa
-marker = folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
+folium.Marker([-15.087836, -44.015762], tooltip="Haz clic aquí").add_to(m)
 
-marker.add_to(m)
 # Mostrar el mapa en Streamlit
-st.write(m)
-    
-# Obtener las coordenadas del marcador
-st.header("Coordenadas del Punto")
-latitude = st.number_input("Latitud", value=0.0, format="%.6f")
-longitude = st.number_input("Longitud", value=0.0, format="%.6f")
-    
-# Actualizar la ubicación del marcador en el mapa
-marker.location = [latitude, longitude]
-    
-# Mostrar las coordenadas en tiempo real
-st.write(f"Latitud: {latitude}, Longitud: {longitude}")
+st.map()
 
+# Capturar las coordenadas del clic en el mapa
+if st.button("Obtener Coordenadas"):
+    st.write("Haz clic en el mapa para seleccionar un punto.")
+    result = st.map()
 
-
-
-
+    if result:
+        latitud = result["lat"]
+        longitud = result["lon"]
+        st.write(f"Coordenadas seleccionadas: Latitud={latitud}, Longitud={longitud}")
 # definición de variables
 
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
