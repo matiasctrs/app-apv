@@ -12,9 +12,9 @@ if "resultado" in st.session_state:
         
         
         for variable_name, variable_value in session_state.items():
-            longitud_variable = len(st.session_state.variable_value)
-            data['Nombre de Variable'].append(variable_name)
-            data['Valor'].append(variable_value)  
+            if isinstance(variable_value, str) and len(variable_value) < 3:
+                data['Nombre de Variable'].append(variable_name)
+                data['Valor'].append(variable_value)  
                 
   
         df = pd.DataFrame(data)
