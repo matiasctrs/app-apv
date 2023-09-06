@@ -4,6 +4,9 @@ import pandas as pd
 
 st.title("Cálculos económicos")
 variables_excluidas = ["tmy","tmy_24","resultado"]
+
+
+
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
     #st.write(pd.DataFrame(st.session_state))
