@@ -35,6 +35,7 @@ folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_t
 st_folium(m)
 
 
+st.write("las coordenadas seleccionadas son: ", popup1.getLat())
 # definición de variables
 
 st.session_state["Latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
