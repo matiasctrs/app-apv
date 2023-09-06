@@ -12,7 +12,7 @@ if "resultado" in st.session_state:
         
         for variable_name, variable_value in session_state.items():
             data['Nombre de Variable'].append(variable_name)
-            data['Valor'].append(variable_value.count)  
+            data['Valor'].append(variable_value)  
                 
   
         df = pd.DataFrame(data)
@@ -24,5 +24,6 @@ if "resultado" in st.session_state:
 
     # Mostrar el DataFrame
     st.write(df_session_state)
+    st.write(len(session_state.items()))
 else:
     st.write("Primero simule un sistema fotovoltaico")
