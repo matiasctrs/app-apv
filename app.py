@@ -80,14 +80,9 @@ if generar_tmy:
         st.write("Ingrese coordenadas válidas")
 
 if simular:
-    if latitude and longitude !=0:
-        if tz != "Seleccione una opción":
-
-            if "tmy" in st.session_state:
-
-            
-                if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
-                    pv = av.pv_yield(tmy_data = st.session_state["tmy"], 
+    if "tmy" in st.session_state:
+        if st.session_state["azimuth"] and st.session_state["pvrow_tilt"] !=0:
+            pv = av.pv_yield(tmy_data = st.session_state["tmy"], 
                                 albedo = albedo, 
                                 track = track, 
                                 pvrow_azimuth = st.session_state["azimuth"], 
@@ -98,19 +93,22 @@ if simular:
                                 pvrow_height = pvrow_height, 
                                 bifaciality = bifaciality)
 
-                    gen_mess = pv.sum()/1000
-                    gen_mess = float("{:.2f}".format(gen_mess))    
-                    ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
-                    st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
+            gen_mess = pv.sum()/1000
+            gen_mess = float("{:.2f}".format(gen_mess))    
+            ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
+            st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
                                 
                     
-                else:
-                    st.write("Ingrese datos validos")
-            else:
-                st.write("Pimero genere un TMY válido")
-        
+        else:
+            st.write("Ingrese datos validos")
     else:
-        st.write("Ingrese coordenadas válidas")
+        st.write("Pimero genere un TMY válido")
+            
+                
+
+            
+        
+    
  
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
