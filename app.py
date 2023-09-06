@@ -47,6 +47,8 @@ with st.expander("Otros parámetros"):
     pvrow_height = st.number_input("Ingresa la altura de las filas", value=3) 
     bifaciality = st.number_input("Ingresa el factor de bifacialidad", value=0.9)
 
+
+
 "---"
 
 
@@ -105,9 +107,8 @@ if simular:
                 else:
                     st.write("Ingrese datos validos")
             else:
-                st.write("Pimero genere un TMY")
-        else:
-            st.write("Ingrese una zona horaria válida")
+                st.write("Pimero genere un TMY válido")
+        
     else:
         st.write("Ingrese coordenadas válidas")
  
