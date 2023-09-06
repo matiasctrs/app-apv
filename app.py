@@ -6,7 +6,7 @@ import importlib
 #import datetime
 #import pytz
 import av_utils as av
-import streamlit_folium as sf
+from streamlit_folium import folium_static
 import folium
 importlib.reload(av)
 
