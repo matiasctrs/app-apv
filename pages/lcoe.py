@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.title("Calculos económicos")
+st.title("Cálculos económicos")
 
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
