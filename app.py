@@ -22,14 +22,14 @@ st.subheader("Rellene este formulario para simular la generación APV")
 st.session_state["latitude"]= st.number_input("Ingresa la latitud", value = -15.087836, format = "%.6f")
 st.session_state["longitude"]= st.number_input("Ingresa la longitud", value = -44.015762, format = "%.6f")
 tz_options = ["Seleccione una opción","Brazil/East"]
-tz = st.selectbox("Ingresa la zona horaria",tz_options)
+st.session_state["tz"] = st.selectbox("Ingresa la zona horaria",tz_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   
   
 if generar_tmy:
     if st.session_state["latitude"] and st.session_state["longitude"] !=0:
-        if tz != "Seleccione una opción":
-            tmy, altitude = av.tmy_download(st.session_state["latitude"], st.session_state["longitude"], tz)
+        if st.session_state["tz"] != "Seleccione una opción":
+            tmy, altitude = av.tmy_download(st.session_state["latitude"], st.session_state["longitude"], st.session_state["tz"])
             st.session_state["tmy"]  = tmy  
             st.session_state["tmy_24"]  = tmy.head(24)  
         else:
