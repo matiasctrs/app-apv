@@ -13,7 +13,7 @@ if "resultado" in st.session_state:
         
         for variable_name, variable_value in session_state.items():
             #if isinstance(variable_value, str) and len(variable_value) < 4:
-            if variable_name != "tmy" or "tmy_24":
+            if variable_name != "tmy", "tmy_24":
                 data['Nombre de Variable'].append(variable_name)
                 data['Valor'].append(variable_value)  
                 
