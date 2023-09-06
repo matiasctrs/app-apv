@@ -36,7 +36,7 @@ if st.button("Obtener Coordenadas"):
     result = st.map()
 
     if result:
-        st.write(f"Coordenadas seleccionadas: Latitud={result["lat"]}, Longitud={result["lon"]}")
+        st.write(f"Coordenadas seleccionadas: Latitud={result['lat']}, Longitud={result['lon']}")
 
 # definición de variables
 
