@@ -10,7 +10,9 @@ if "resultado" in st.session_state:
     def session_state_to_dataframe(session_state):
         data = {'Nombre de Variable': [], 'Valor': []}
         
+        
         for variable_name, variable_value in session_state.items():
+            longitud_variable = len(st.session_state.variable_value)
             data['Nombre de Variable'].append(variable_name)
             data['Valor'].append(variable_value)  
                 
@@ -24,6 +26,6 @@ if "resultado" in st.session_state:
 
     # Mostrar el DataFrame
     st.write(df_session_state)
-    st.write(len(session_state.items()))
+    
 else:
     st.write("Primero simule un sistema fotovoltaico")
