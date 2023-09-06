@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 st.title("Cálculos económicos")
-variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular"]
+variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular","02f54165e180ca5593fb2dd5541301619d8ae709186fe25176bcc476b592d8d1"]
 
 
 st.header("Resúmen de generación fotovoltaica:")
