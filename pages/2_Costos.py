@@ -3,10 +3,10 @@ import numpy as np
 import pandas as pd
 
 st.title("Cálculos económicos")
-variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular","02f54165e180ca5593fb2dd5541301619d8ae709186fe25176bcc476b592d8d1",
-                       "kWp","WACC","Capex"]
+#variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular","02f54165e180ca5593fb2dd5541301619d8ae709186fe25176bcc476b592d8d1",
+ #                      "kWp","WACC","Capex"]
 
-
+variables_incluidas = ["Latitude","Longitude","Track","Azimuth","Pv row tilt","Time zone"]
 st.header("Resumen de generación fotovoltaica:")
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
@@ -17,7 +17,7 @@ if "resultado" in st.session_state:
         
         for variable_name, variable_value in session_state.items():
             #if isinstance(variable_value, str) and len(variable_value) < 4:
-            if variable_name not in variables_excluidas:
+            if variable_name in variables_incluidas:
                 data['Nombre de Variable'].append(variable_name)
                 data['Valor'].append(variable_value)  
                 
