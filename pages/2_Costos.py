@@ -29,7 +29,7 @@ if "resultado" in st.session_state:
     df_session_state = session_state_to_dataframe(st.session_state)
 
     # Mostrar el DataFrame
-    st.write(df_session_state, width = 700)
+    st.write(df_session_state, width = 1000)
     
 else:
     st.write("Primero simule un sistema fotovoltaico")
