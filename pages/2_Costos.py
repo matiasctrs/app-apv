@@ -48,7 +48,7 @@ st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", val
 st.session_state["WACC"] = st.number_input("Ingresa el WACC del proyecto", value = 0.055, format = "%.3f")
 
 
-
+simular_lcoe = st.button("Simular LCOE", key = "Simular LCOE") 
 
 
 
