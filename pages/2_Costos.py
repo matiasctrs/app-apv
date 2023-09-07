@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import av_utils as av
 
 st.title("Cálculos económicos")
 #variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular","02f54165e180ca5593fb2dd5541301619d8ae709186fe25176bcc476b592d8d1",
@@ -52,7 +53,7 @@ simular_lcoe = st.button("Simular LCOE", key = "Simular LCOE")
 
 if simular_lcoe:
     if "resultado" in st.session_state:
-        st.session_state["LCOE"] = av_utils.lcoe_calc(pv_gen=st.session_state["LCOE"],
+        st.session_state["LCOE"] = av.lcoe_calc(pv_gen=st.session_state["LCOE"],
                                              kWp=st.session_state["kWp"],
                                              capex=st.session_state["Capex"],
                                              wacc=st.session_state["WACC"])
