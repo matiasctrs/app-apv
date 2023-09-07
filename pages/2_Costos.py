@@ -59,13 +59,14 @@ if simular_lcoe:
                                              wacc=st.session_state["WACC"])
         
         #float("{:.2f}".format(gen_mess))
-        st.session_state["resultado_LCOE"]  = f"El LCOE del sistema simulado es: ${float('{:.2f}'.format(st.session_state['LCOE']))}\\frac{{USD}}{{kWh}}$."
 
-        st.success(st.session_state["resultado_LCOE"])
     else: 
         st.write("Primero simule un sistema fotovoltaico")    
 
 
+if "LCOE" in st.session_state:
+    st.session_state["resultado_LCOE"]  = f"El LCOE del sistema simulado es: ${float('{:.2f}'.format(st.session_state['LCOE']))}\\frac{{USD}}{{kWh}}$."
 
+    st.success(st.session_state["resultado_LCOE"])
     
 
