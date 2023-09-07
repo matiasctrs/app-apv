@@ -36,6 +36,22 @@ else:
 
 "---"
 
+
+####-----LCOE----------------------
+
+
 st.header("Formulario para cálculo de LCOE")
 
 st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", value = 50)
+st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", value = 900)
+st.session_state["WACC"] = st.number_input("Ingresa el WACC del proyecto", value = 0.055, format = "%.3f")
+
+
+
+
+
+
+
+
+
+
