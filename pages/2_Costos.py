@@ -43,16 +43,23 @@ else:
 
 st.header("Formulario para cálculo de LCOE")
 
-st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", value = 50)
-st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", value = 900)
-st.session_state["WACC"] = st.number_input("Ingresa el WACC del proyecto", value = 0.055, format = "%.3f")
+st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", min_value=1, value = 50)
+st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", min_value=1,  value = 900)
+st.session_state["WACC"] = st.number_input("Ingresa el WACC del proyecto",min_value=0, value = 0.055, format = "%.3f")
 
 
 simular_lcoe = st.button("Simular LCOE", key = "Simular LCOE") 
 
+if simular_lcoe:
+    if "resultado" in st.session_state:
+        st.session_state["LCOE"] = lcoe_calc(pv_gen=st.session_state["LCOE"],
+                                             kWp=st.session_state["kWp"],
+                                             capex=st.session_state["Capex"],
+                                             wacc=st.session_state["WACC"])
+    else: 
+        st.write("Primero simule un sistema fotovoltaico")    
 
 
-
-
-
+if "resultado" in st.session_state:
+    st.success(st.session_state["LCOE"])
 
