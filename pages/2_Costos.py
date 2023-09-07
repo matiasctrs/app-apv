@@ -34,6 +34,8 @@ if "resultado" in st.session_state:
 else:
     st.write("Primero simule un sistema fotovoltaico")
 
+"---"
 
+st.header("Formulario para cálculo de LCOE")
 
 st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", value = 50)
