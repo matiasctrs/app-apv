@@ -56,10 +56,11 @@ if simular_lcoe:
                                              kWp=st.session_state["kWp"],
                                              capex=st.session_state["Capex"],
                                              wacc=st.session_state["WACC"])
+        st.success(st.session_state["LCOE"])
     else: 
         st.write("Primero simule un sistema fotovoltaico")    
 
 
-if "resultado" in st.session_state:
-    st.success(st.session_state["LCOE"])
+
+    
 
