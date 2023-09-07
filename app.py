@@ -129,9 +129,9 @@ if simular:
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
     fig, ax1=plt.subplots()
-    ax1.set_title("Simulated system yield")
+    ax1.set_title("Simulated system output")
     ax1.set_ylabel("AC power")
-    ax1.set_xlabel("month of the year")
+    ax1.set_xlabel("Hour of the year")
     ax1.plot(st.session_state["pv"],label="Generated power")
     ax1.tick_params(axis='y')
     plt.legend()
