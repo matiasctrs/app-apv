@@ -3,10 +3,11 @@ import numpy as np
 import pandas as pd
 
 st.title("Cálculos económicos")
-variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular","02f54165e180ca5593fb2dd5541301619d8ae709186fe25176bcc476b592d8d1"]
+variables_excluidas = ["tmy","tmy_24","resultado","TMY", "simular","02f54165e180ca5593fb2dd5541301619d8ae709186fe25176bcc476b592d8d1",
+                       "kWp","WACC","Capex"]
 
 
-st.header("Resúmen de generación fotovoltaica:")
+st.header("Resumen de generación fotovoltaica:")
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
     #st.write(pd.DataFrame(st.session_state))
