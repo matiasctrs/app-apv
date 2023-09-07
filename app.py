@@ -114,9 +114,9 @@ if simular:
                                 bifaciality = bifaciality)
 
             gen_mess = pv.sum()/1000
-            gen_mess = float("{:.2f}".format(gen_mess))    
+            st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
             ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
-            st.session_state["resultado"]  = f"La generación fotovoltaica es: ${gen_mess}\\frac{{kWh}}{{kWp*year}}$."
+            st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state["pv_gen"]}\\frac{{kWh}}{{kWp*year}}$."
                                 
                     
         else:
