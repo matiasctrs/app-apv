@@ -132,8 +132,9 @@ if "resultado" in st.session_state:
     ax1.set_title("30° tilt, North oriented fixed")
     ax1.set_ylabel("DC power")
     ax1.set_xlabel("month of the year")
-    ax1.plot(pdc_bifi,label="Generated power")
+    ax1.plot(pv.pdc_bifi,label="Generated power")
     ax1.tick_params(axis='y')
     plt.legend()
     fig.tight_layout()
     st.pyplot(fig)
+    
