@@ -206,7 +206,8 @@ def lcoe_calc(pv_gen, kWp, capex,  wacc ,opex = 25, degre = 0.005, inflation = 0
     cashflow["EG_des"] = (pv_gen * kWp * (1-degre)**cashflow.index) / (1+wacc)**cashflow.index
 
     LCOE =  ((capex * kWp + cashflow["OPEX_des"].sum() ) / cashflow["EG_des"].sum())*1000
-
+    
+    
     print("LCOE of the simulated system is "+str(round(LCOE,2))+" USD/kWh")
 
     return LCOE
