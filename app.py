@@ -127,3 +127,12 @@ if simular:
  
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
+    fig, ax1=plt.subplots()
+    ax1.set_title("30° tilt, North oriented fixed")
+    ax1.set_ylabel("DC power")
+    ax1.set_xlabel("month of the year")
+    ax1.plot(pdc_bifi,label="Generated power")
+    ax1.tick_params(axis='y')
+    plt.legend()
+    fig.tight_layout()
+    st.pyplot(fig)
