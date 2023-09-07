@@ -33,3 +33,7 @@ if "resultado" in st.session_state:
     
 else:
     st.write("Primero simule un sistema fotovoltaico")
+
+
+
+st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", value = 50)
