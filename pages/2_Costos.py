@@ -52,7 +52,7 @@ simular_lcoe = st.button("Simular LCOE", key = "Simular LCOE")
 
 if simular_lcoe:
     if "resultado" in st.session_state:
-        st.session_state["LCOE"] = lcoe_calc(pv_gen=st.session_state["LCOE"],
+        st.session_state["LCOE"] = av_utils.lcoe_calc(pv_gen=st.session_state["LCOE"],
                                              kWp=st.session_state["kWp"],
                                              capex=st.session_state["Capex"],
                                              wacc=st.session_state["WACC"])
