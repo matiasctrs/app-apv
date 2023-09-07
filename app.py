@@ -7,6 +7,7 @@ from streamlit_folium import folium_static
 from streamlit_folium import st_folium
 from folium.plugins import MousePosition
 import folium
+import matplotlib.pyplot as plt
 importlib.reload(av)
 
 
