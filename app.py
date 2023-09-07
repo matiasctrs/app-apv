@@ -103,7 +103,7 @@ simular = st.button("Simular", key = "simular")
 if simular:
     if "tmy" in st.session_state:
         if st.session_state["Azimuth"] and st.session_state["Pv row tilt"] !=0:
-            pv = av.pv_yield(tmy_data = st.session_state["tmy"], 
+            st.session_state["pv"] = av.pv_yield(tmy_data = st.session_state["tmy"], 
                                 albedo = albedo, 
                                 track = st.session_state["Track"] , 
                                 pvrow_azimuth = st.session_state["Azimuth"], 
@@ -114,7 +114,7 @@ if simular:
                                 pvrow_height = pvrow_height, 
                                 bifaciality = bifaciality)
 
-            gen_mess = pv.sum()/1000
+            gen_mess = st.session_state["pv"].sum()/1000
             st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
             ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
             st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
@@ -129,10 +129,10 @@ if simular:
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
     fig, ax1=plt.subplots()
-    ax1.set_title("30° tilt, North oriented fixed")
-    ax1.set_ylabel("DC power")
+    ax1.set_title("Simulated system yield")
+    ax1.set_ylabel("AC power")
     ax1.set_xlabel("month of the year")
-    ax1.plot(pv,label="Generated power")
+    ax1.plot(st.session_state["pv"],label="Generated power")
     ax1.tick_params(axis='y')
     plt.legend()
     fig.tight_layout()
