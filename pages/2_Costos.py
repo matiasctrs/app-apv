@@ -58,8 +58,8 @@ if simular_lcoe:
                                              capex=st.session_state["Capex"],
                                              wacc=st.session_state["WACC"])
         
-        
-        st.session_state["resultado_LCOE"]  = f"El LCOE del sistema simulado es: ${st.session_state['LCOE']}\\frac{{USD}}{{kWh}}$."
+        #float("{:.2f}".format(gen_mess))
+        st.session_state["resultado_LCOE"]  = f"El LCOE del sistema simulado es: ${float("{:.2f}".format(st.session_state['LCOE']))}\\frac{{USD}}{{kWh}}$."
 
         st.success(st.session_state["resultado_LCOE"])
     else: 
