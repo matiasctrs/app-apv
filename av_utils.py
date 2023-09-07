@@ -195,7 +195,7 @@ def pv_yield(tmy_data, albedo, track, pvrow_azimuth, pvrow_tilt, n_pvrows, pvrow
 
 #con pvgen = generacion especifica en un año en kWh/kWp/a
 
-def lcoe_calc(pv_gen, kWp, capex, opex = 25, wacc ,degre = 0.005, inflation = 0.03, N = 25):
+def lcoe_calc(pv_gen, kWp, capex,  wacc ,opex = 25, degre = 0.005, inflation = 0.03, N = 25):
 
     # LCOE calculation (can be externalized as functions in av_utils)
 
