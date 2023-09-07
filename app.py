@@ -44,7 +44,7 @@ st_folium(m, height=500, width = 700)
 # definición de variables
 
 
-tz_options = ["Seleccione una opción","Brazil/East"]
+tz_options = ["Seleccione una opción","Brazil/East",'America/Santiago']
 st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",tz_options)
 
 generar_tmy = st.button("Generar TMY", key = "TMY")   #
