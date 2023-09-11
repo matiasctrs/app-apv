@@ -36,9 +36,12 @@ MousePosition().add_to(m)
 popup1 = folium.LatLngPopup()
 m.add_child(popup1)
 
+#agregar un marcador con la posición inicial
 
 folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
+
 # Mostrar el mapa en Streamlit
+
 st_folium(m, height=500, width = 700)
 
 
@@ -54,8 +57,9 @@ generar_tmy = st.button("Generar TMY", key = "TMY")   #
   
 if generar_tmy:
     if st.session_state["Latitude"] and st.session_state["Longitude"] !=0:
+        folium.Marker([st.session_state["Latitude"], st.session_state["Longitude"]], tooltip="Ubicación seleccionada").add_to(m)
         if st.session_state["Time zone"] != "Seleccione una opción":
-            folium.Marker([st.session_state["Latitude"], st.session_state["Longitude"]], tooltip="Ubicación seleccionada").add_to(m)
+            
             tmy, altitude = av.tmy_download(st.session_state["Latitude"], st.session_state["Longitude"], st.session_state["Time zone"])
             st.session_state["tmy"]  = tmy  
             st.session_state["tmy_24"]  = tmy.head(24)  
