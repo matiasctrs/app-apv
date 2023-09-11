@@ -36,7 +36,7 @@ MousePosition().add_to(m)
 popup1 = folium.LatLngPopup()
 m.add_child(popup1)
 # Agregar un control de clic en el mapa
-folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
+folium.Marker([st.session_state["Latitude"], st.session_state["Longitude"]], tooltip="Ubicación seleccionada").add_to(m)
 
 # Mostrar el mapa en Streamlit
 st_folium(m, height=500, width = 700)
