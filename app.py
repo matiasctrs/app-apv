@@ -76,7 +76,7 @@ if generar_tmy:
         st.write("Ingrese coordenadas válidas")
 
 
-if "tmy_24" in st.session_state:
+if "tmy" in st.session_state:
     st.header("TMY:")
     st.dataframe(st.session_state["tmy_24"])
 #------ Simulacion de generacion electrica-----
