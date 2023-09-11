@@ -37,12 +37,15 @@ popup1 = folium.LatLngPopup()
 m.add_child(popup1)
 
 
-
+folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada").add_to(m)
 # Mostrar el mapa en Streamlit
 st_folium(m, height=500, width = 700)
 
-# definición de variables
 
+
+
+
+# definición de variables
 
 tz_options = ["Seleccione una opción","Brazil/East",'America/Santiago']
 st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",tz_options)
