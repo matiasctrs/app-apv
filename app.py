@@ -39,8 +39,11 @@ m.add_child(popup1)
 #agregar un marcador con la posición inicial
 
 marcador=folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada")
-
 marcador.add_to(m)
+if st.session_state["Latitude"] !=-15.087836 and st.session_state["Longitude"] !=-44.015762: 
+    marcador = folium.Marker([st.session_state["Latitude"], st.session_state["Longitude"]], tooltip="Ubicación seleccionada")
+    marcador.add_to(m)
+
 # Mostrar el mapa en Streamlit
 
 st_folium(m, height=500, width = 700)
@@ -54,11 +57,13 @@ st_folium(m, height=500, width = 700)
 tz_options = ["Seleccione una opción","Brazil/East",'America/Santiago']
 st.session_state["Time zone"] = st.selectbox("Ingresa la zona horaria",tz_options)
 
+
+
 generar_tmy = st.button("Generar TMY", key = "TMY")   #
   
 if generar_tmy:
     if st.session_state["Latitude"] and st.session_state["Longitude"] !=0:
-        marcador = folium.Marker([st.session_state["Latitude"], st.session_state["Longitude"]], tooltip="Ubicación seleccionada")
+       
         if st.session_state["Time zone"] != "Seleccione una opción":
             
             tmy, altitude = av.tmy_download(st.session_state["Latitude"], st.session_state["Longitude"], st.session_state["Time zone"])
