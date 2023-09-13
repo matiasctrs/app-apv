@@ -83,9 +83,9 @@ if "tmy" in st.session_state:
 
 st.subheader("Simulación eléctrica:")
 Track_options = [True,False]
-st.session_state["Track"] = st.selectbox("Tracking",Track_options)
-st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90)
-st.session_state["Pv row tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60)
+st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
+st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90, help =" orientación horizontal en relación con el norte geográfico")
+st.session_state["Pv row tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = 60, help ="Inclinación de los módulos")
 
 # fijos
 with st.expander("Otros parámetros"):
