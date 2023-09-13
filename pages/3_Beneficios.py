@@ -14,7 +14,7 @@ if "LCOE" in st.session_state:
         
         
         for variable_name, variable_value in session_state.items():
-            #if isinstance(variable_value, str) and len(variable_value) < 4:
+            
             if variable_name in variables_incluidas:
                 data['Nombre de Variable'].append(variable_name)
                 data['Valor'].append(variable_value)  
