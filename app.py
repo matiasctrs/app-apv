@@ -38,8 +38,8 @@ m.add_child(popup1)
 
 #agregar un marcador con la posición inicial
 
-marcador=folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada")
-marcador.add_to(m)
+#marcador=folium.Marker([-15.087836, -44.015762], tooltip="Ubicación seleccionada")
+#marcador.add_to(m)
 if st.session_state["Latitude"] !=-15.087836 and st.session_state["Longitude"] !=-44.015762: 
     marcador = folium.Marker([st.session_state["Latitude"], st.session_state["Longitude"]], tooltip="Ubicación seleccionada")
     marcador.add_to(m)
