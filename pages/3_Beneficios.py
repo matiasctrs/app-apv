@@ -36,23 +36,7 @@ else:
 
 
 "---"
-# Define una función para mostrar información emergente cuando se hace clic en un enlace.
-def show_info_popup(text):
-    st.info(text)
 
-# Crear un input de texto con un enlace para mostrar información emergente.
-user_input = st.text_input("Ingrese su nombre", help="Haga clic aquí para obtener información sobre este campo.")
-
-# Define la información que se mostrará en el popup emergente.
-info_text = "Ingrese su nombre en este campo. Este es un ejemplo de cómo puede proporcionar información adicional al usuario cuando pasa el mouse sobre el ícono de información."
-
-# Verificar si el usuario hizo clic en el enlace de información y mostrar el popup correspondiente.
-if st.button("ℹ️"):
-    show_info_popup(info_text)
-
-# Otra forma es usar un enlace de texto en lugar de un botón.
-# if st.text("ℹ️"):
-#     show_info_popup(info_text)
+st.header("Cálculo de la Tasa interna de retorno (TIR)")
 
 
-#def TIR(loce,years,)

@@ -5,3 +5,4 @@ streamlit-folium
 streamlit-extras
 #av_utils
 pvfactors
+numpy-financial

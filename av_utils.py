@@ -21,7 +21,7 @@ from pvlib import tracking
 from pvlib.bifacial.pvfactors import pvfactors_timeseries
 from pvlib import temperature
 from pvlib import pvsystem
-
+import numpy_financial as npf
 import pvfactors
 from pvfactors.engine import PVEngine
 from pvfactors.geometry import OrderedPVArray
@@ -213,4 +213,24 @@ def lcoe_calc(pv_gen, kWp, capex,  wacc ,opex, degre = 0.005, inflation = 0.03, 
 
     return LCOE
 
+def tir(opex,capex,kWp,pv_gen,inflation=0.03,N=25,price=0.085,degre=0.005):
+    
+    cashflow= pd.DataFrame(index=range(0,N))
 
+    flujos =[]
+    
+    gasto_inicial = -capex * kWp
+
+    flujos.append(gasto_inicial)
+        
+    for i in range(1,25):
+
+        flujo_generado = (pv_gen * kWp * (1-degre)**i)*price
+        flujo_negativo = -(opex * kWp * (1+inflation)**i) 
+        neto = flujo_generado+flujo_negativo
+        flujos.append(neto)
+    
+    cashflow["Flujos"] = flujos
+
+    TIR = (npf.irr(flujos))
+    return TIR,cashflow

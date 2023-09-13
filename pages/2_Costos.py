@@ -42,7 +42,7 @@ else:
 ####-----LCOE----------------------
 
 
-st.header("Formulario para cálculo de LCOE")
+st.header("Cálculo del costo nivelado de energía LCOE")
 
 #st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", min_value=1, value = 50)
 st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", min_value=1,  value = 900,help = "Gastos de capital del proyecto en USD")
