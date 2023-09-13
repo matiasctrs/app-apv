@@ -44,7 +44,8 @@ else:
 
 st.header("Formulario para cálculo de LCOE")
 
-st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", min_value=1, value = 50)
+#st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", min_value=1, value = 50)
+st.session_state["Opex"] = st.number_input("Ingresa el Opex del proyecto", min_value=1,  value = 25)
 st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", min_value=1,  value = 900)
 st.session_state["WACC"] = st.number_input("Ingresa el WACC del proyecto", value = 0.055, format = "%.3f")
 
@@ -56,7 +57,8 @@ if simular_lcoe:
         st.session_state["LCOE"] = av.lcoe_calc(pv_gen=st.session_state["pv_gen"],
                                              kWp=st.session_state["kWp"],
                                              capex=st.session_state["Capex"],
-                                             wacc=st.session_state["WACC"])
+                                             wacc=st.session_state["WACC"],
+                                             opex=st.session_state["Opex"])
         
         #float("{:.2f}".format(gen_mess))
 
