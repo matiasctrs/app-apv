@@ -128,7 +128,8 @@ if simular:
                                 pvrow_height = pvrow_height, 
                                 bifaciality = bifaciality)
 
-            gen_mess = st.session_state["pv"].sum()/1000
+            suma_bruta = st.session_state["pv"].sum()
+            gen_mess = round(suma_bruta/1000,2)
             st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
             ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
             st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
