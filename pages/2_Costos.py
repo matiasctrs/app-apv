@@ -45,7 +45,7 @@ else:
 st.header("Formulario para cálculo de LCOE")
 
 #st.session_state["kWp"] = st.number_input("Ingresa el tamaño de la planta (kWp)", min_value=1, value = 50)
-st.session_state["Opex"] = st.number_input("Ingresa el Opex del proyecto", min_value=1,  value = 25)
+st.session_state["Opex"] = st.number_input("Ingresa el Opex del proyecto", min_value=1,  value = 25, help = "Gastos de operación del proyecto en USD")
 st.session_state["Capex"] = st.number_input("Ingresa el Capex del proyecto", min_value=1,  value = 900)
 st.session_state["WACC"] = st.number_input("Ingresa el WACC del proyecto", value = 0.055, format = "%.3f")
 
