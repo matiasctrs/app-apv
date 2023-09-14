@@ -190,9 +190,9 @@ def pv_yield(tmy_data, albedo, track, pvrow_azimuth, pvrow_tilt, n_pvrows, pvrow
             availability=3)
 
     results_ac_real = results_ac * (1-losses/100)
-
-    #return results_ac_real
-    return results_ac
+    pv_sum = results_ac_real.sum()
+    return pv_sum, results_ac_real
+    #return results_ac
 #con pvgen = generacion especifica en un año en kWh/kWp/a
 
 def lcoe_calc(pv_gen, kWp, capex,  wacc ,opex, degre = 0.005, inflation = 0.03, N = 25):

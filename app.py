@@ -118,7 +118,7 @@ if simular:
     if "tmy" in st.session_state:
         #if st.session_state["Azimuth"] and st.session_state["Pv row tilt"] !=0:
 
-        st.session_state["pv"] = av.pv_yield(tmy_data = st.session_state["tmy"], 
+        st.session_state["pv_sum"], st.session_state["pv"] = av.pv_yield(tmy_data = st.session_state["tmy"], 
                             albedo = albedo, 
                             track = st.session_state["Track"] , 
                             pvrow_azimuth = st.session_state["Azimuth"], 
@@ -136,7 +136,8 @@ if simular:
         #st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
         ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
         #st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
-        st.dataframe(st.session_state["pv"])                        
+        #st.dataframe(st.session_state["pv"])
+        st.write(st.session_state["pv_sum"])                        
     else:
         st.write("Pimero genere un TMY válido")
   
