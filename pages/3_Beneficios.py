@@ -40,8 +40,8 @@ else:
 st.header("Cálculo de la Tasa interna de retorno (TIR)", help ="Se calculará la Tasa interna de retorno como la tasa de crecimiento anual que se espera que la inversión genere de por vida")
 
 
-st.session_state["kWp"]= st.number_input("kWp",min_value = 1,value = 50, help ="Tamaño de la planta en kWp (kilo Watts peak)")
-st.session_state["Precio"]= st.number_input("Precio de venta del kilo Watt",min_value = 0.00001,value = 0.085, help ="Precio al que se vende cada kilowatt hora en USD, asumiendo que la energía generada se inyecta a la red")
+st.session_state["kWp"]= st.number_input("Tamaño de la planta en kWp",min_value = 1,value = 50, help ="Tamaño de la planta en kWp (kilo Watts peak)")
+st.session_state["Precio"]= st.number_input("Precio de venta del kilo Watt",min_value = 0.00001,value = 0.085, format = '%.4f',help ="Precio al que se vende cada kilowatt hora en USD, asumiendo que la energía generada se inyecta a la red")
 
 simular_tir = st.button("Simular TIR", key = "Simular TIR")
 
