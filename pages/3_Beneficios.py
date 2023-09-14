@@ -38,11 +38,9 @@ else:
 "---"
 
 st.header("Cálculo de la Tasa interna de retorno (TIR)", help ="Se calculará la Tasa interna de retorno como la tasa de crecimiento"+ 
-          " anual que se espera que la inversión genere de por vida"+"
-          "
-          +"-Se asume que el proyecto tiene un plazo de vida de 25 años"+"
-          "
-          +"-Se asume un factor de degradación en los paneles, lo cual afectará a la generación electrica")
+          " anual que se espera que la inversión genere de por vida"+"      "+
+          "-Se asume que el proyecto tiene un plazo de vida de 25 años"+"     "+
+          "-Se asume un factor de degradación en los paneles, lo cual afectará a la generación electrica")
 
 
 st.session_state["kWp"]= st.number_input("Tamaño de la planta en kWp",min_value = 1,value = 50, help ="Tamaño de la planta en kWp (kilo Watts peak)")
