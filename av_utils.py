@@ -213,7 +213,7 @@ def lcoe_calc(pv_gen, kWp, capex,  wacc ,opex, degre = 0.005, inflation = 0.03, 
 
     return LCOE
 
-def tir(opex,capex,kWp,pv_gen,inflation=0.03,N=25,price=0.085,degre=0.005):
+def tir(opex,capex,pv_gen,kWp=50,inflation=0.03,N=25,price=0.085,degre=0.005):
     
     cashflow= pd.DataFrame(index=range(0,N))
 

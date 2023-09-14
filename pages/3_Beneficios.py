@@ -40,15 +40,16 @@ else:
 st.header("Cálculo de la Tasa interna de retorno (TIR)")
 
 
-st.session_state["kWp"]=st.number_input("kWp",min_value = 1,value = 50, help ="Tamaño de la planta en kWp (kilo Watts peak)")
+#st.session_state["kWp"]= 50 #st.number_input("kWp",min_value = 1,value = 50, help ="Tamaño de la planta en kWp (kilo Watts peak)")
 
 simular_tir = st.button("Simular TIR", key = "Simular TIR")
 
 if simular_tir:
     st.session_state["TIR"], st.session_state["Flujos"] = av.tir(opex = st.session_state["Opex"],
                                      capex = st.session_state["Capex"],
-                                     kWp = st.session_state["kWp"],
                                      pv_gen = st.session_state["pv_gen"])
     st.session_state["resultado_TIR"]  = f"La Tasa interna de retorno del sistema simulado es: % ${float('{:.2f}'.format(st.session_state['TIR']*100))}$."
 
     st.success(st.session_state["resultado_TIR"])
+    st.write("Los flujos de caja en USD, asociados a los 25 periodos del proyecto son:")
+    st.dataframe(st.session_state["Flujos"])
