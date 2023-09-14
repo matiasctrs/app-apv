@@ -130,6 +130,7 @@ if simular:
 
             #suma_bruta = st.session_state["pv"].sum()
             suma_bruta = np.sum(st.session_state["pv"])
+            st.write(suma_bruta)
             gen_mess = round(suma_bruta/1000,2)
             st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
             ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
