@@ -64,6 +64,6 @@ if simular_tir:
 if "TIR" in st.session_state:
     st.success(st.session_state["resultado_TIR"])
     st.write("Los flujos de caja en USD, asociados a los 25 periodos del proyecto son:")
-    st.write(st.session_state["Flujos"])
+    st.dataframe(st.session_state["Flujos"])
 
 
