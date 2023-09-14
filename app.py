@@ -143,6 +143,7 @@ if simular:
  
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
+    st.write(suma_bruta)
     fig, ax1=plt.subplots()
     ax1.set_title("Simulated system output")
     ax1.set_ylabel("AC power")
