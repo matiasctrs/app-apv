@@ -132,12 +132,12 @@ if simular:
         #suma_bruta = st.session_state["pv"].sum()
         #suma_bruta = np.sum(st.session_state["pv"])
         #st.write(suma_bruta)
-        #gen_mess = round(suma_bruta/1000,2)
-        #st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
+        gen_mess = round(st.session_state["pv_sum"]/1000,2)
+        st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
         ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
-        #st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
+        st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
         #st.dataframe(st.session_state["pv"])
-        st.write(st.session_state["pv_sum"])                        
+        #st.write(st.session_state["pv_sum"])                        
     else:
         st.write("Pimero genere un TMY válido")
   
