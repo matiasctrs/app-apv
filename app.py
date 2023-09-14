@@ -15,7 +15,7 @@ importlib.reload(av)
 #####---------main tittle-----------------
 st.set_page_config(page_title="APV data analysis")
 
-st.title("Fotovoltaico")
+st.title("Fotovoltaicos")
 
 st.sidebar.success("Seleccione una pagina")
 
