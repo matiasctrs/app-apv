@@ -54,8 +54,8 @@ if simular_tir:
         
 
 
-else:
-    st.write("Primero simule el costo del proyecto")
+    else:
+        st.write("Primero simule el costo del proyecto")
 
 
 if "TIR" in st.session_state:
