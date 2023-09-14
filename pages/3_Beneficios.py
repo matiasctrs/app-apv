@@ -76,6 +76,6 @@ if "TIR" in st.session_state:
         unsafe_allow_html=True,
     )
 
-    st.dataframe(st.session_state["Flujos"])
+    st.write(st.session_state["Flujos"])
 
 
