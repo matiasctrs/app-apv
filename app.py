@@ -116,29 +116,30 @@ simular = st.button("Simular", key = "simular")
 
 if simular:
     if "tmy" in st.session_state:
-        if st.session_state["Azimuth"] and st.session_state["Pv row tilt"] !=0:
-            st.session_state["pv"] = av.pv_yield(tmy_data = st.session_state["tmy"], 
-                                albedo = albedo, 
-                                track = st.session_state["Track"] , 
-                                pvrow_azimuth = st.session_state["Azimuth"], 
-                                pvrow_tilt = st.session_state["Pv row tilt"] , 
-                                n_pvrows = n_pvrows, 
-                                pvrow_width = pvrow_width, 
-                                pvrow_pitch = pvrow_pitch, 
-                                pvrow_height = pvrow_height, 
-                                bifaciality = bifaciality)
+        #if st.session_state["Azimuth"] and st.session_state["Pv row tilt"] !=0:
 
-            #suma_bruta = st.session_state["pv"].sum()
-            suma_bruta = np.sum(st.session_state["pv"])
-            st.write(suma_bruta)
-            gen_mess = round(suma_bruta/1000,2)
-            st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
-            ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
-            st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
+        st.session_state["pv"] = av.pv_yield(tmy_data = st.session_state["tmy"], 
+                            albedo = albedo, 
+                            track = st.session_state["Track"] , 
+                            pvrow_azimuth = st.session_state["Azimuth"], 
+                            pvrow_tilt = st.session_state["Pv row tilt"] , 
+                            n_pvrows = n_pvrows, 
+                            pvrow_width = pvrow_width, 
+                            pvrow_pitch = pvrow_pitch, 
+                            pvrow_height = pvrow_height, 
+                            bifaciality = bifaciality)
+
+        #suma_bruta = st.session_state["pv"].sum()
+        suma_bruta = np.sum(st.session_state["pv"])
+        st.write(suma_bruta)
+        gen_mess = round(suma_bruta/1000,2)
+        st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
+        ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
+        st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
                                 
                     
-        else:
-            st.write("Ingrese datos validos")
+        #else:
+        #    st.write("Ingrese datos validos")
     else:
         st.write("Pimero genere un TMY válido")
   
