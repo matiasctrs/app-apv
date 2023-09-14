@@ -128,7 +128,8 @@ if simular:
                                 pvrow_height = pvrow_height, 
                                 bifaciality = bifaciality)
 
-            suma_bruta = st.session_state["pv"].sum()
+            #suma_bruta = st.session_state["pv"].sum()
+            suma_bruta = np.sum(st.session_state["pv"])
             gen_mess = round(suma_bruta/1000,2)
             st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
             ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
@@ -143,7 +144,6 @@ if simular:
  
 if "resultado" in st.session_state:
     st.success(st.session_state["resultado"])
-    st.write(suma_bruta)
     fig, ax1=plt.subplots()
     ax1.set_title("Simulated system output")
     ax1.set_ylabel("AC power")
