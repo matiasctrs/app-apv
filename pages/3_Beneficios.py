@@ -49,6 +49,6 @@ if simular_tir:
                                      capex = st.session_state["Capex"],
                                      kWp = st.session_state["kWp"],
                                      pv_gen = st.session_state["pv_gen"])
-    st.session_state["resultado_TIR"]  = f"La Tasa interna de retorno del sistema simulado es: ${float('{:.2f}'.format(st.session_state['TIR']*100))}%$."
+    st.session_state["resultado_TIR"]  = f"La Tasa interna de retorno del sistema simulado es: % ${float('{:.2f}'.format(st.session_state['TIR']*100))}$."
 
     st.success(st.session_state["resultado_TIR"])
