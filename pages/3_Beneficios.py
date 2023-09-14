@@ -28,7 +28,7 @@ if "LCOE" in st.session_state:
     df_session_state = session_state_to_dataframe(st.session_state)
 
     # Mostrar el DataFrame
-    st.write(df_session_state, width = 1000)
+    st.dataframe(df_session_state, width = 1000)
 
 
 else:
@@ -40,7 +40,7 @@ else:
 st.header("Cálculo de la Tasa interna de retorno (TIR)", help ="Se calculará la Tasa interna de retorno como la tasa de crecimiento"+ 
           " anual que se espera que la inversión genere de por vida"+"      "+
           "-Se asume que el proyecto tiene un plazo de vida de 25 años"+"     "+
-          "-Se asume un factor de degradación en los paneles, lo cual afectará a la generación electrica")
+          "-Se asume un factor de degradación en los paneles, lo cual afectará a la generación electrica.")
 
 
 st.session_state["kWp"]= st.number_input("Tamaño de la planta en kWp",min_value = 1,value = 50, help ="Tamaño de la planta en kWp (kilo Watts peak)")
@@ -67,6 +67,6 @@ if simular_tir:
 if "TIR" in st.session_state:
     st.success(st.session_state["resultado_TIR"])
     st.write("Los flujos de caja en USD, asociados a los 25 periodos del proyecto son:")
-    st.dataframe(st.session_state["Flujos"])
+    st.dataframe(st.session_state["Flujos"],width = 1000)
 
 
