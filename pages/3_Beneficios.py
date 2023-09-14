@@ -51,7 +51,7 @@ if simular_tir:
                                                                     pv_gen = st.session_state["pv_gen"])
         st.session_state["resultado_TIR"]  = f"La Tasa interna de retorno del sistema simulado es: % ${float('{:.2f}'.format(st.session_state['TIR']*100))}$."
 
-        st.success(st.session_state["resultado_TIR"])
+        
 
 
 else:
@@ -59,6 +59,7 @@ else:
 
 
 if "TIR" in st.session_state:
+    st.success(st.session_state["resultado_TIR"])
     st.write("Los flujos de caja en USD, asociados a los 25 periodos del proyecto son:")
     st.dataframe(st.session_state["Flujos"])
 
