@@ -64,18 +64,6 @@ if simular_tir:
 if "TIR" in st.session_state:
     st.success(st.session_state["resultado_TIR"])
     st.write("Los flujos de caja en USD, asociados a los 25 periodos del proyecto son:")
-    # Centro el DataFrame utilizando CSS personalizado
-    st.markdown(
-        f"""
-        <style>
-            .dataframe {{
-                text-align: center;
-            }}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
     st.write(st.session_state["Flujos"])
 
 
