@@ -45,7 +45,7 @@ st.session_state["kWp"]=st.number_input("kWp",min_value = 1,value = 50, help ="T
 simular_tir = st.button("Simular TIR", key = "Simular TIR")
 
 if simular_tir:
-    st.session_state["TIR"] = av.tir(opex = st.session_state["Opex"],
+    st.session_state["TIR"], st.session_state["Flujos"] = av.tir(opex = st.session_state["Opex"],
                                      capex = st.session_state["Capex"],
                                      kWp = st.session_state["kWp"],
                                      pv_gen = st.session_state["pv_gen"])
