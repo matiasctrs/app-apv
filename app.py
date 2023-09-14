@@ -143,9 +143,9 @@ if simular:
     else:
         st.write("Pimero genere un TMY válido")
   
- 
+
 if "resultado" in st.session_state:
-    st.success(st.session_state["resultado"])
+    #st.success(st.session_state["resultado"])
     fig, ax1=plt.subplots()
     ax1.set_title("Simulated system output")
     ax1.set_ylabel("AC power")
