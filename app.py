@@ -130,14 +130,14 @@ if simular:
                             bifaciality = bifaciality)
 
         #suma_bruta = st.session_state["pv"].sum()
-        suma_bruta = np.sum(st.session_state["pv"])
-        st.write(suma_bruta)
-        gen_mess = round(suma_bruta/1000,2)
-        st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
+        #suma_bruta = np.sum(st.session_state["pv"])
+        #st.write(suma_bruta)
+        #gen_mess = round(suma_bruta/1000,2)
+        #st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
         ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
-        st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
+        #st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
                                 
-                    
+        st.dataframe(st.session_state["pv"])            
         #else:
         #    st.write("Ingrese datos validos")
     else:
@@ -145,7 +145,7 @@ if simular:
   
 
 if "resultado" in st.session_state:
-    #st.success(st.session_state["resultado"])
+    st.success(st.session_state["resultado"])
     fig, ax1=plt.subplots()
     ax1.set_title("Simulated system output")
     ax1.set_ylabel("AC power")
