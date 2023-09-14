@@ -136,10 +136,7 @@ if simular:
         #st.session_state["pv_gen"]  = float("{:.2f}".format(gen_mess))    
         ##-------GUARDA resultado EN LA SESION PARA OCUPAR EN OTRAS PAGINAS------            
         #st.session_state["resultado"]  = f"La generación fotovoltaica es: ${st.session_state['pv_gen']}\\frac{{kWh}}{{kWp*year}}$."
-                                
-        st.dataframe(st.session_state["pv"])            
-        #else:
-        #    st.write("Ingrese datos validos")
+        st.dataframe(st.session_state["pv"])                        
     else:
         st.write("Pimero genere un TMY válido")
   
