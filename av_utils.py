@@ -223,7 +223,7 @@ def tir(opex,capex,pv_gen,kWp,price,inflation=0.03,N=25,degre=0.005):
 
     flujos.append(gasto_inicial)
         
-    for i in range(1,25):
+    for i in range(1,N):
 
         flujo_generado = (pv_gen * kWp * (1-degre)**i)*price
         flujo_negativo = -(opex * kWp * (1+inflation)**i) 
