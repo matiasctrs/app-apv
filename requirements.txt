@@ -6,3 +6,4 @@ streamlit-extras
 #av_utils
 pvfactors
 numpy-financial
+streamlit-image-select
