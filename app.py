@@ -89,7 +89,7 @@ st.subheader("Simulación eléctrica:")
 
 img = image_select(
     label = "Selecciona un diseño",
-    images = ["tracking.png"
+    images = ["tracking.png",
               "vertical.png"],
     captions=["Tracking", "Vertical"],
 )
