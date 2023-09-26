@@ -87,17 +87,12 @@ st.subheader("Simulación eléctrica:")
 
 #### Fotos para parametros -----------
 
-diseños = {
-    "Vertical": "vertical.png"
-}
-
-seleccion_diseño = st.selectbox("Selecciona un diseño pre determinado", list(diseños.keys()))
-
-diseño_seleccionado=diseños[seleccion_diseño]
-st.image(diseño_seleccionado, caption = seleccion_diseño, use_column_width = False)
-
-if seleccion_diseño =="Vertical":
-    st.write("Has seleccionado un diseño vertical")
+img = image_select(
+    label = "Selecciona un diseño",
+    images = ["tracking.png"
+              "vertical.png"],
+    captions=["Tracking", "Vertical"],
+)
 
 Track_options = [True,False]
 st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
