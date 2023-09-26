@@ -5,6 +5,7 @@ import importlib
 import av_utils as av
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
+from streamlit_image_select import image_select
 from folium.plugins import MousePosition
 import folium
 import matplotlib.pyplot as plt
@@ -93,7 +94,7 @@ diseños = {
 seleccion_diseño = st.selectbox("Selecciona un diseño pre determinado", list(diseños.keys()))
 
 diseño_seleccionado=diseños[seleccion_diseño]
-st.image(diseño_seleccionado, caption = seleccion_diseño, use_column_width = True)
+st.image(diseño_seleccionado, caption = seleccion_diseño, use_column_width = False)
 
 if seleccion_diseño =="Vertical":
     st.write("Has seleccionado un diseño vertical")
