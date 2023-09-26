@@ -82,6 +82,22 @@ if "tmy" in st.session_state:
 #------ Simulacion de generacion electrica-----
 
 st.subheader("Simulación eléctrica:")
+
+
+#### Fotos para parametros -----------
+
+diseños = {
+    "Vertical": "vertical.png"
+}
+
+seleccion_diseño = st.selectbox("Selecciona un diseño pre determinado", list(diseños.keys()))
+
+diseño_seleccionado=diseños[seleccion_diseño]
+st.image(diseño_seleccionado, caption = seleccion_diseño, use_column_width = True)
+
+if seleccion_diseño =="Vertical":
+    st.write("Has seleccionado un diseño vertical")
+
 Track_options = [True,False]
 st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
 st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90, help =" orientación horizontal en relación con el norte geográfico")
