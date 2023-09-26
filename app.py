@@ -85,7 +85,7 @@ if "tmy" in st.session_state:
 st.subheader("Simulación eléctrica:")
 
 
-#### Fotos para parametros -----------
+#### Fotos para parametros ------------
 
 img = image_select(
     label = "Selecciona un diseño",
