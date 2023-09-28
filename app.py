@@ -181,7 +181,8 @@ session_state = get_session_state()
 ##__________________simulacion________________--
 
 simular = st.button("Simular")      
-
+if 'pv_sum' not in st.session_state:
+    st.session_state['pv_sum'] = 0 
 if simular:
     if "tmy" in st.session_state:
         #if st.session_state["Azimuth"] and st.session_state["Pv row tilt"] !=0:
