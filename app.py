@@ -93,7 +93,7 @@ img = image_select(
               "vertical_new.png",
               "tracking_new.png"],
     captions=["Elevado", "Vertical","Tracking"],
-    use_container_width=True,
+    use_container_width=False,
     
 )
 
