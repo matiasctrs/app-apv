@@ -95,7 +95,7 @@ img = image_select(
     use_container_width=True,
     
 )
-
+st.write(str(img)[:100])
 Track_options = [True,False]
 st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
 st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value = 90, help =" orientación horizontal en relación con el norte geográfico")
