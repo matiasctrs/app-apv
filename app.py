@@ -90,8 +90,8 @@ st.subheader("Simulación eléctrica:")
 
 elevado = Image.open("elevado.png")
 width, height = elevado.size
-new_width = 100  # Define el nuevo ancho deseado
-new_height = 100#int(height * (new_width / width))
+new_width = 400  # Define el nuevo ancho deseado
+new_height = 400#int(height * (new_width / width))
 resized_elevado = elevado.resize((new_width, new_height))
 
 img = image_select(
