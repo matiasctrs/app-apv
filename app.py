@@ -99,7 +99,7 @@ for image in images:
 
     # Redimensiona la imagen
     width, height = image.size
-    new_width = 400  # Define el nuevo ancho deseado
+    new_width = 450  # Define el nuevo ancho deseado
     new_height = 400 #int(height * (new_width / width))
     resized_image = image.resize((new_width, new_height))
     images_r.append(resized_image)
