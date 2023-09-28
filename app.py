@@ -101,7 +101,7 @@ img = image_select(
               "tracking_new.png",
               "personalizado.jpg"],
     captions=["Elevado", "Vertical","Tracking","Personalizado"],
-    use_container_width=False,
+    use_container_width=True,
 
 )
 
