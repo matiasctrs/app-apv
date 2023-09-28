@@ -108,7 +108,7 @@ img = image_select(
     label = "Selecciona un diseño",
     images = images_r,
     captions=["Elevado", "Vertical","Tracking","Personalizado"],
-    use_container_width=True,
+    use_container_width=False,
     return_value="index", #index empieza de 0
 
 )
