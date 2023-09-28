@@ -9,6 +9,7 @@ from streamlit_image_select import image_select
 from folium.plugins import MousePosition
 import folium
 import matplotlib.pyplot as plt
+from PIL import Image
 importlib.reload(av)
 
 
@@ -87,9 +88,15 @@ st.subheader("Simulación eléctrica:")
 
 #### Fotos para parametros ------------
 
+elevado = Image.open("elevado.png")
+width, height = elevado.size
+new_width = 300  # Define el nuevo ancho deseado
+new_height = int(height * (new_width / width))
+resized_elevado = elevado.resize((new_width, new_height))
+
 img = image_select(
     label = "Selecciona un diseño",
-    images = ["elevado.png",
+    images = [resized_elevado,
               "vertical_new.png",
               "tracking_new.png",
               "personalizado.jpg"],
