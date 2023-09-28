@@ -90,7 +90,7 @@ st.subheader("Simulación eléctrica:")
 
 images = ["elevado.png",
               "vertical_new.png",
-              "tracking_new.png","personalizado.png"]
+              "tracking_new.png"]
 images_r = []
 for image in images:
     # Carga de la imagen
@@ -103,12 +103,12 @@ for image in images:
     resized_image = image.resize((new_width, new_height))
     images_r.append(resized_image)
 
-#images_r.append("personalizado.png")
+images_r.append("personalizado.png")
 img = image_select(
     label = "Selecciona un diseño",
     images = images_r,
     captions=["Elevado", "Vertical","Tracking","Personalizado"],
-    use_container_width=True,
+    use_container_width=False,
     return_value="index", #index empieza de 0
 
 )
