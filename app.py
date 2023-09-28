@@ -89,9 +89,9 @@ st.subheader("Simulación eléctrica:")
 
 img = image_select(
     label = "Selecciona un diseño",
-    images = ["https://github.com/matiasctrs/app-apv/blob/main/tracking.png?raw=true",
+    images = ["https://github.com/matiasctrs/app-apv/blob/main/elevado.png?raw=true",
               "https://github.com/matiasctrs/app-apv/blob/main/vertical_new.png?raw=true"],
-    captions=["Tracking", "Vertical"],
+    captions=["Elevado", "Vertical"],
     use_container_width=True,
 )
 
