@@ -109,6 +109,7 @@ img = image_select(
     images = images_r,
     captions=["Elevado", "Vertical","Tracking","Personalizado"],
     use_container_width=True,
+    return_value="index",
 
 )
 
@@ -118,7 +119,7 @@ st.session_state["Diseño"] = str(img)
 tilt = 60
 Track_options = [True,False]
 
-if st.session_state["Diseño"] =="vertical_new.png":
+if st.session_state["Diseño"] =="2":
     st.write("Has seleccionado el diseño Agrovoltaico Vertical")
     tilt = 90
     Track_options = [False,True]
