@@ -88,18 +88,26 @@ st.subheader("Simulación eléctrica:")
 
 #### Fotos para parametros ------------
 
-elevado = Image.open("elevado.png")
-width, height = elevado.size
-new_width = 400  # Define el nuevo ancho deseado
-new_height = 400#int(height * (new_width / width))
-resized_elevado = elevado.resize((new_width, new_height))
+images = ["elevado.png",
+              "vertical_new.png",
+              "tracking_new.png",
+              "personalizado.jpg"]
+images_r = []
+for image in images:
+    # Carga de la imagen
+    image = Image.open(image)
+
+    # Redimensiona la imagen
+    width, height = image.size
+    new_width = 400  # Define el nuevo ancho deseado
+    new_height = 400 #int(height * (new_width / width))
+    resized_image = image.resize((new_width, new_height))
+    images_r.append(resized_image)
+
 
 img = image_select(
     label = "Selecciona un diseño",
-    images = [resized_elevado,
-              "vertical_new.png",
-              "tracking_new.png",
-              "personalizado.jpg"],
+    images = images_r,
     captions=["Elevado", "Vertical","Tracking","Personalizado"],
     use_container_width=True,
 
