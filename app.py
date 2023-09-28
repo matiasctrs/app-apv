@@ -91,7 +91,7 @@ img = image_select(
     label = "Selecciona un diseño",
     images = ["elevado.png",
               "vertical_new.png",
-              "tracking_new"],
+              "tracking_new.png"],
     captions=["Elevado", "Vertical","Tracking"],
     use_container_width=True,
     
