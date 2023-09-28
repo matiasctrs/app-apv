@@ -92,7 +92,7 @@ img = image_select(
     images = ["elevado.png",
               "vertical_new.png",
               "tracking_new.png",
-              "personalizado.png"],
+              "personalizado.jpg"],
     captions=["Elevado", "Vertical","Tracking","Personalizado"],
     use_container_width=True,
 
