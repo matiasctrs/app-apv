@@ -93,7 +93,7 @@ img = image_select(
               "https://github.com/matiasctrs/app-apv/blob/main/vertical_new.png?raw=true"],
     captions=["Elevado", "Vertical"],
     use_container_width=True,
-    help = "Esto es una ayuda",
+    
 )
 
 Track_options = [True,False]
