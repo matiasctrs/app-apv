@@ -105,12 +105,12 @@ Track_options = [True,False]
 if st.session_state["Diseño"] =="vertical_new.png":
     st.write("Has seleccionado el diseño Agrovoltaico Vertical")
     tilt = 90
-    Track_options = False
+    opcion = False
 
 
 #st.write(str(img)[:100])
 
-st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
+st.session_state["Track"] = st.selectbox("Tracking",Track_options,value = opcion,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
 st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value =90, help =" orientación horizontal en relación con el norte geográfico")
 st.session_state["Pv row tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = tilt, help ="Inclinación de los módulos")
 
