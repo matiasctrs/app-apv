@@ -118,17 +118,41 @@ st.session_state["Diseño"] = str(img)
 #variables sensibles a diseños
 tilt = 60
 Track_options = [True,False]
+azimut = 90
+distancia_filas = 4
+altura_filas = 3
+
+if st.session_state["Diseño"] =="0":
+    st.write("Has seleccionado el diseño Agrovoltaico Elevado")
+    Track_options = [False,True]
+    azimut = 330
+    tilt = 15
+    distancia_filas = 3.5
+    altura_filas = 3
+    
+
 
 if st.session_state["Diseño"] =="1":
     st.write("Has seleccionado el diseño Agrovoltaico Vertical")
     tilt = 90
     Track_options = [False,True]
+    azimut = 180
+    altura_filas = 0.5
+    distancia_filas = 9.3
+
+if st.session_state["Diseño"] =="2":
+    st.write("Has seleccionado el diseño Agrovoltaico con Tracking")
+    tilt = 60
+    Track_options = [True,False]
+    azimut = 180
+    altura_filas = 1.5
+    distancia_filas = 11.3
 
 
 #st.write(str(img)[:100])
 
 st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
-st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value =90, help =" orientación horizontal en relación con el norte geográfico")
+st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value =azimut, help =" orientación horizontal en relación con el norte geográfico")
 st.session_state["Pv row tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = tilt, help ="Inclinación de los módulos")
 
 # fijos
@@ -136,8 +160,8 @@ with st.expander("Otros parámetros"):
     albedo =  st.number_input("Ingresa el valor del albedo", value=0.2)
     n_pvrows = st.number_input("Ingresa el número de filas", value=3)
     pvrow_width = st.number_input("Ingresa el ancho de las filas en metros", value=1)
-    pvrow_pitch = st.number_input("Ingresa el pitch de las filas", value=4)
-    pvrow_height = st.number_input("Ingresa la altura de las filas", value=3) 
+    pvrow_pitch = st.number_input("Ingresa el pitch de las filas", value=distancia_filas)
+    pvrow_height = st.number_input("Ingresa la altura de las filas", value=altura_filas) 
     bifaciality = st.number_input("Ingresa el factor de bifacialidad", value=0.9)
 
 
