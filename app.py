@@ -180,7 +180,7 @@ session_state = get_session_state()
             
 ##__________________simulacion________________--
 
-simular = st.button("Simular", key = "simular")      
+simular = st.button("Simular")      
 
 if simular:
     if "tmy" in st.session_state:
