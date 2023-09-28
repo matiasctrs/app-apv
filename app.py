@@ -91,10 +91,11 @@ img = image_select(
     label = "Selecciona un diseño",
     images = ["elevado.png",
               "vertical_new.png",
-              "tracking_new.png"],
-    captions=["Elevado", "Vertical","Tracking"],
+              "tracking_new.png",
+              "personalizado.png"],
+    captions=["Elevado", "Vertical","Tracking","Personalizado"],
     use_container_width=True,
-    
+
 )
 
 st.session_state["Diseño"] = str(img)
