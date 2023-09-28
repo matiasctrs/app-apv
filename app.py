@@ -92,7 +92,7 @@ img = image_select(
     images = ["https://github.com/matiasctrs/app-apv/blob/main/tracking.png?raw=true",
               "https://github.com/matiasctrs/app-apv/blob/main/vertical_new.png?raw=true"],
     captions=["Tracking", "Vertical"],
-    use_container_width=False,
+    use_container_width=True,
 )
 
 Track_options = [True,False]
