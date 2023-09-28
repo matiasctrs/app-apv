@@ -90,7 +90,7 @@ st.subheader("Simulación eléctrica:")
 img = image_select(
     label = "Selecciona un diseño",
     images = ["elevado.png",
-              "vertical.png"],
+              "vertical_new.png"],
     captions=["Elevado", "Vertical"],
     use_container_width=True,
     
