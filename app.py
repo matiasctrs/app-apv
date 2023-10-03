@@ -136,7 +136,7 @@ if st.session_state["Diseño"] =="1":
     st.write("Has seleccionado el diseño Agrovoltaico Vertical")
     tilt = 90
     Track_options = [False,True]
-    azimut = 180
+    azimut = 60
     altura_filas = 0.5
     distancia_filas = 9.3
 
@@ -144,7 +144,7 @@ if st.session_state["Diseño"] =="2":
     st.write("Has seleccionado el diseño Agrovoltaico con Tracking")
     tilt = 60
     Track_options = [True,False]
-    azimut = 180
+    azimut = 60
     altura_filas = 1.5
     distancia_filas = 11.3
 
