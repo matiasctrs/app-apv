@@ -152,7 +152,7 @@ if st.session_state["Diseño"] =="2":
 #st.write(str(img)[:100])
 
 st.session_state["Track"] = st.selectbox("Tracking",Track_options,help="True = Sistema si cuenta con seguimiento, False = Sistema no cuenta con seguimiento")
-st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value =azimut, help =" orientación horizontal en relación con el norte geográfico")
+st.session_state["Azimuth"] = st.number_input("Ingresa el angulo Azimut en °", min_value=0, max_value=360, value =azimut, help =" orientación horizontal en relación con el norte geográfico, N = 0°, E = 90°")
 st.session_state["Pv row tilt"] = st.number_input("Ingresa el tilt en °",min_value=0, max_value=189, value = tilt, help ="Inclinación de los módulos")
 
 # fijos
